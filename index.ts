@@ -112,6 +112,9 @@ app.use('/', sitemapRoutes);
 // SSR routes for social media crawlers - MUST be before static file serving
 app.use('/', ssrRoutes);
 
+// Serve public static assets (should come after SSR routes)
+app.use(express.static(path.join(process.cwd(), 'public')));
+
 app.get('/api/i18n/languages', (req: Request, res: Response) => {
   res.json({ languages: getAvailableLanguages() });
 });
