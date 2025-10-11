@@ -1,0 +1,1157 @@
+{
+  "search": {
+    "documentTitle": "Pesquisar - {{app}}",
+    "heading": "Pesquisar",
+    "subheading": "Encontre posts e usuários",
+    "placeholder": "Pesquisar posts ou usuários...",
+    "tabs": {
+      "posts": "Posts",
+      "users": "Usuários"
+    },
+    "status": {
+      "searchingUsers": "Pesquisando usuários..."
+    },
+    "emptyUsers": {
+      "title": "Nenhum usuário encontrado",
+      "subtitle": "Tente pesquisar com palavras-chave diferentes"
+    },
+    "actions": {
+      "loadMoreUsers": "Carregar Mais Usuários",
+      "search": "Pesquisar"
+    },
+    "emptyState": {
+      "title": "Comece a pesquisar",
+      "subtitle": "Digite uma palavra-chave para pesquisar posts e usuários"
+    },
+    "errors": {
+      "searchFailed": "Falha ao pesquisar usuários"
+    }
+  },
+  "app": {
+    "name": "Axioris",
+    "logoAlt": "Logo do {{app}}"
+  },
+  "nav": {
+    "home": "Início",
+    "search": "Pesquisar",
+    "notifications": "Notificações",
+    "messages": "Mensagens",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "admin": "Administração",
+    "createPost": "Criar Post",
+    "login": "Entrar",
+    "signUp": "Cadastrar"
+  },
+  "mobile": {
+    "pageTitle": "Instalar o PWA do Axioris",
+    "browserTitle": "Instalar Axioris PWA",
+    "message": "O Axioris funciona perfeitamente como um Progressive Web App. Instale-o para ficar conectado em movimento sem baixar nada da loja.",
+    "errorCode": "Código de Erro: {{code}}",
+    "installCta": "Instalar o PWA",
+    "continue": "Continuar no Site",
+    "modalTitle": "Como instalar no seu telefone",
+    "intro": "Adicione o Axioris à sua tela inicial para que se comporte como um aplicativo nativo completo. Leva apenas alguns segundos:",
+    "iosTitle": "No iPhone ou iPad (Safari)",
+    "iosSteps": [
+      "Toque no ícone <strong>Compartilhar</strong> na barra de ferramentas do navegador.",
+      "Selecione <strong>Adicionar à Tela de Início</strong>.",
+      "Confirme tocando em <strong>Adicionar</strong>."
+    ],
+    "androidTitle": "No Android (Chrome)",
+    "androidSteps": [
+      "Toque no menu <strong>⋮</strong> no canto superior direito.",
+      "Escolha <strong>Instalar aplicativo</strong> ou <strong>Adicionar à tela inicial</strong>.",
+      "Confirme o prompt para finalizar."
+    ],
+    "closing": "Uma vez instalado, abra o Axioris da sua tela inicial para a experiência em tela cheia, livre de distrações.",
+    "close": "Fechar",
+    "confirm": "Entendi"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "submit": "Enviar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "loadMore": "Carregar mais",
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "language": "Idioma",
+    "languages": {
+      "en": "Inglês",
+      "es": "Espanhol",
+      "fr": "Francês",
+      "de": "Alemão",
+      "pt": "Português",
+      "it": "Italiano"
+    },
+    "viewMore": "Mostrar mais",
+    "viewLess": "Mostrar menos",
+    "statuses": {
+      "saving": "Salvando...",
+      "deleting": "Excluindo...",
+      "replying": "Respondendo...",
+      "posting": "Postando...",
+      "updating": "Atualizando...",
+      "loading": "Carregando...",
+      "yes": "Sim",
+      "no": "Não"
+    }
+  },
+  "mediaModal": {
+    "types": {
+      "image": "Imagem",
+      "video": "Vídeo"
+    },
+    "position": "{{type}} {{index}} de {{total}}",
+    "actions": {
+      "download": "Baixar",
+      "preparing": "Preparando..."
+    },
+    "errors": {
+      "downloadFailed": "Não foi possível baixar a mídia."
+    }
+  },
+  "feed": {
+    "status": {
+      "loading": "Carregando posts...",
+      "end": "Você chegou ao fim!"
+    },
+    "errors": {
+      "fetch": "Não foi possível carregar os posts.",
+      "generic": "Ocorreu um erro ao carregar os posts."
+    },
+    "empty": {
+      "title": "Ainda não há posts",
+      "search": "Nenhum post encontrado para \"{{query}}\".",
+      "user": "Este usuário ainda não publicou nada.",
+      "default": "Seja o primeiro a compartilhar algo!"
+    },
+    "actions": {
+      "retry": "Tentar novamente",
+      "create": "Criar post",
+      "loadMore": "Carregar mais",
+      "loadingMore": "Carregando..."
+    }
+  },
+  "post": {
+    "created": "Postado {{time}}",
+    "edited": "Editado {{time}}",
+    "mediaAlt": "Item de mídia {{index}}",
+    "comments": "Comentários",
+    "reactions": "Reações",
+    "share": "Compartilhar",
+    "report": "Denunciar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "copyLink": "Copiar link",
+    "reactionsPicker": {
+      "add": "Reagir com {{emoji}}",
+      "remove": "Remover sua reação {{emoji}}"
+    },
+    "labels": {
+      "pinned": "Fixado",
+      "title": "Título:"
+    },
+    "media": {
+      "avatarAlt": "Avatar de {{name}}"
+    },
+    "actions": {
+      "editPost": "Editar post",
+      "deletePost": "Excluir post",
+      "reportPost": "Denunciar post",
+      "viewInAdmin": "Ver no painel administrativo",
+      "readMore": "Ler mais"
+    },
+    "modals": {
+      "delete": {
+        "title": "Excluir post",
+        "description": "Tem certeza de que deseja excluir este post? Essa ação não pode ser desfeita."
+      }
+    }
+  },
+  "home": {
+    "documentTitle": "Início - {{app}}",
+    "heading": "Início",
+    "subtitle": "Acompanhe as últimas novidades das pessoas que você segue."
+  },
+  "postPage": {
+    "meta": {
+      "defaultTitle": "Post sem título",
+      "documentTitle": "{{title}} - {{app}}",
+      "defaultDocumentTitle": "Post - {{app}}"
+    },
+    "errors": {
+      "notFound": "Este post não pôde ser encontrado.",
+      "loadFailed": "Não conseguimos carregar este post."
+    },
+    "navigation": {
+      "backToHome": "Voltar ao início",
+      "backToProfile": "Voltar ao perfil",
+      "backToSearch": "Voltar aos resultados da pesquisa",
+      "genericBack": "Voltar"
+    },
+    "comments": {
+      "title": "{{count}} Comentários",
+      "placeholder": "Compartilhe seus pensamentos...",
+      "actions": {
+        "submit": "Comentar"
+      },
+      "status": {
+        "posting": "Postando..."
+      },
+      "validation": {
+        "tooLong": "Comentários devem ter {{limit}} caracteres ou menos."
+      },
+      "empty": "Nenhum comentário ainda. Seja o primeiro a deixar um!"
+    }
+  },
+  "profilePage": {
+    "documentTitle": "{{name}} - {{app}}",
+    "loading": "Carregando perfil...",
+    "redirecting": "Redirecionando...",
+    "errors": {
+      "notFound": "Perfil não encontrado",
+      "loadFailed": "Falha ao carregar perfil"
+    },
+    "error": {
+      "title": "Não conseguimos carregar este perfil",
+      "description": "Tente novamente mais tarde ou volte.",
+      "back": "Voltar"
+    },
+    "banned": {
+      "title": "Conta Banida",
+      "username": "Nome de usuário",
+      "bannedOn": "Banido em",
+      "reason": "Motivo",
+      "message": "Esta conta foi banida e não pode acessar a plataforma."
+    },
+    "media": {
+      "bannerAlt": "Banner do perfil de {{name}}",
+      "avatarAlt": "Avatar de {{name}}"
+    },
+    "level": "Nível {{level}}",
+    "actions": {
+      "createPost": "Criar Post",
+      "editProfile": "Editar Perfil",
+      "follow": "Seguir",
+      "unfollow": "Deixar de seguir",
+      "sendMessage": "Enviar Mensagem"
+    },
+    "statuses": {
+      "messaging": "Enviando mensagem..."
+    },
+    "stats": {
+      "posts": "Posts",
+      "followers": "Seguidores",
+      "following": "Seguindo"
+    },
+    "meta": {
+      "joined": "Ingressou em {{date}}"
+    },
+    "tabs": {
+      "posts": "Posts",
+      "about": "Sobre"
+    },
+    "about": {
+      "title": "Sobre {{name}}",
+      "details": {
+        "username": "Nome de usuário",
+        "location": "Localização",
+        "website": "Site",
+        "memberSince": "Membro desde",
+        "level": "Nível",
+        "lastActive": "Último ativo"
+      },
+      "values": {
+        "username": "@{{username}}",
+        "noBio": "Nenhuma biografia disponível ainda.",
+        "unknown": "Desconhecido"
+      }
+    }
+  },
+  "errorPage": {
+    "documentTitle": "Error {{code}} - {{app}}",
+    "defaultMessage": "The page you're looking for couldn't be found or an error occurred.",
+    "logoAlt": "{{app}} logo",
+    "returnHome": "Return to Home"
+  },
+  "comment": {
+    "placeholder": "Escreva um comentário...",
+    "submit": "Comentar",
+    "reply": "Responder",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "loadReplies": "Ver respostas",
+    "hideReplies": "Ocultar respostas",
+    "edited": "Editado",
+    "avatarAlt": "Avatar de {{name}}",
+    "prompts": {
+      "deleteConfirm": "Tem certeza de que deseja excluir este comentário?"
+    },
+    "errors": {
+      "delete": "Falha ao excluir comentário. Tente novamente.",
+      "update": "Falha ao atualizar comentário. Tente novamente.",
+      "replyFailed": "Falha ao postar resposta. Tente novamente."
+    },
+    "validation": {
+      "tooLong": "Comentário muito longo. Máximo de {{limit}} caracteres permitidos.",
+      "replyTooLong": "Resposta muito longa. Máximo de {{limit}} caracteres permitidos."
+    },
+    "editor": {
+      "supports": "Suporta **markdown**, :emojis: e @menções",
+      "replyPlaceholder": "Responder para {{name}}...",
+      "charCount": "{{count}}/{{limit}} caracteres"
+    },
+    "statuses": {
+      "replying": "Respondendo..."
+    },
+    "time": {
+      "justNow": "Agora mesmo",
+      "minutes": "{{count}} min atrás",
+      "hours": "{{count}} h atrás",
+      "days": "{{count}} d atrás",
+      "edited": "(editado)"
+    }
+  },
+  "time": {
+    "calendar": {
+      "today": "Hoje",
+      "yesterday": "Ontem",
+      "todayWithTime": "Hoje às {{time}}",
+      "yesterdayWithTime": "Ontem às {{time}}"
+    },
+    "relative": {
+      "justNow": "Agora mesmo",
+      "seconds": "Há {{count}} segundos",
+      "minute": "Há 1 minuto",
+      "minutes": "Há {{count}} minutos",
+      "hour": "Há 1 hora",
+      "hours": "Há {{count}} horas",
+      "day": "Há 1 dia",
+      "days": "Há {{count}} dias",
+      "week": "Há 1 semana",
+      "weeks": "Há {{count}} semanas",
+      "month": "Há 1 mês",
+      "months": "Há {{count}} meses",
+      "year": "Há 1 ano",
+      "years": "Há {{count}} anos"
+    },
+    "formats": {
+      "dateTime": "{{date}} às {{time}}"
+    },
+    "display": {
+      "absoluteWithRelative": "{{absolute}} · {{relative}}"
+    }
+  },
+  "createPost": {
+    "documentTitle": "Criar Post - {{app}}",
+    "title": "Criar um post",
+    "subtitle": "Compartilhe o que está pensando com a comunidade.",
+    "placeholder": "O que está acontecendo?",
+    "mediaLimit": "Você pode anexar até 5 arquivos de mídia.",
+    "submit": "Postar",
+    "fields": {
+      "titlePlaceholder": "Título (opcional)",
+      "contentPlaceholder": "Digite o conteúdo do seu post (suporta Markdown) aqui..."
+    },
+    "tabs": {
+      "write": "Escrever",
+      "preview": "Visualizar"
+    },
+    "upload": {
+      "heading": "Enviando arquivos:",
+      "status": {
+        "uploading": "{{progress}}%",
+        "processing": "Processando...",
+        "complete": "Concluído",
+        "error": "Erro"
+      },
+      "attached": "Mídia anexada ({{count}}/{{limit}})",
+      "videoLabel": "Vídeo"
+    },
+    "actions": {
+      "cancel": "Cancelar",
+      "submit": "Postar",
+      "posting": "Postar",
+      "postingStatus": "Postando...",
+      "uploading": "Enviando..."
+    },
+    "charCount": "{{count}}/1000",
+    "mobileTitle": "Criar Post",
+    "errors": {
+      "contentLength": "Seu post deve ter entre 1 e 1000 caracteres.",
+      "fileTooLarge": "Arquivo {{file}} é muito grande (máx 50MB)",
+      "invalidType": "Arquivo {{file}} não é uma imagem ou vídeo válido",
+      "maxFiles": "Máximo de {{limit}} arquivos de mídia permitidos por post",
+      "uploadFailed": "Falha no upload",
+      "network": "Erro de rede",
+      "createFailed": "Falha ao criar post",
+      "createGeneric": "Ocorreu um erro ao criar o post"
+    }
+  },
+  "editPost": {
+    "modalTitle": "Editar post",
+    "fields": {
+      "titleLabel": "Título (opcional)",
+      "titlePlaceholder": "Digite o título do post...",
+      "contentLabel": "Conteúdo",
+      "contentPlaceholder": "O que você está pensando?"
+    },
+    "toolbar": {
+      "bold": "Negrito",
+      "italic": "Itálico",
+      "strikethrough": "Tachado",
+      "upload": "Enviar imagem ou vídeo",
+      "emoji": "Adicionar emoji"
+    },
+    "tabs": {
+      "write": "Escrever",
+      "preview": "Pré-visualizar"
+    },
+    "preview": {
+      "empty": "Nada para pré-visualizar..."
+    },
+    "charCount": "{{count}} caracteres",
+    "media": {
+      "previewAlt": "Pré-visualização do upload",
+      "remove": "Remover item de mídia"
+    },
+    "errors": {
+      "emptyContent": "O conteúdo não pode estar vazio.",
+      "fileTooLarge": "O arquivo {{file}} é muito grande (máx. {{limit}}).",
+      "invalidType": "O arquivo {{file}} não é uma imagem ou vídeo válido.",
+      "maxFiles": "É permitido no máximo {{limit}} arquivos de mídia por post.",
+      "updateFailed": "Não foi possível atualizar o post.",
+      "mediaUploadFailed": "Não foi possível enviar os arquivos de mídia."
+    },
+    "actions": {
+      "update": "Atualizar post",
+      "updating": "Atualizando post..."
+    }
+  },
+  "report": {
+    "title": "Denunciar conteúdo",
+    "description": "Conte-nos o que aconteceu para que nossa equipe possa revisar.",
+    "placeholders": {
+      "reason": "Selecione um motivo",
+      "details": "Detalhes adicionais (opcional)"
+    },
+    "fields": {
+      "reasonLabel": "Motivo",
+      "notesLabel": "Notas (opcional)"
+    },
+    "reasons": {
+      "spam": "Spam",
+      "harassment": "Assédio",
+      "sexual": "Conteúdo sexual",
+      "illegal": "Conteúdo ilegal",
+      "other": "Outro"
+    },
+    "modalTitle": {
+      "post": "Denunciar post",
+      "comment": "Denunciar comentário"
+    },
+    "submit": "Enviar denúncia",
+    "status": {
+      "submitting": "Enviando..."
+    },
+    "errors": {
+      "submitFailed": "Não foi possível enviar a denúncia"
+    },
+    "success": "Obrigado! Sua denúncia foi enviada."
+  },
+  "messages": {
+    "new": "Nova mensagem",
+    "placeholder": "Digite uma mensagem...",
+    "empty": "Selecione uma conversa ou inicie uma nova.",
+    "emoji": "Adicionar emoji"
+  },
+  "notifications": {
+    "title": "Notificações",
+    "empty": "Você está em dia!"
+  },
+  "notificationsCenter": {
+    "documentTitle": "Notificações - {{app}}",
+    "documentTitleWithCount": "Notificações ({{count}}) - {{app}}",
+    "title": "Notificações",
+    "subtitle": {
+      "active": "Mantenha-se atualizado com sua atividade",
+      "archived": "Revise itens que você guardou"
+    },
+    "views": {
+      "ariaLabel": "Seletor de visualização de notificação",
+      "active": "Ativas",
+      "archived": "Arquivadas"
+    },
+    "actions": {
+      "markAll": "Marcar todas como lidas",
+      "marking": "Marcando...",
+      "tooltips": {
+        "archive": "Arquivar notificação",
+        "delete": "Excluir notificação",
+        "restore": "Restaurar notificação"
+      }
+    },
+    "loading": "Carregando notificações...",
+    "empty": {
+      "active": {
+        "title": "Nenhuma notificação ainda",
+        "message": "Quando as pessoas interagirem com seus posts ou seguirem você, você verá notificações aqui."
+      },
+      "archived": {
+        "title": "Nada arquivado ainda",
+        "message": "Arquive qualquer notificação para guardá-la. Seus itens salvos aparecerão aqui."
+      }
+    },
+    "preview": "\"{{snippet}}\"",
+    "badges": {
+      "archived": "Arquivado"
+    },
+    "timestamps": {
+      "archived": "Arquivado {{time}}"
+    },
+    "loadMore": {
+      "label": "Carregar mais notificações",
+      "loading": "Carregando..."
+    },
+    "modals": {
+      "archive": {
+        "title": "Arquivar notificação",
+        "description": "Arquivar a notificação \"{{content}}\"?",
+        "helper": "Itens arquivados saem da sua lista ativa mas permanecem disponíveis na aba Arquivados.",
+        "fallback": "Arquivar esta notificação?",
+        "status": {
+          "archiving": "Arquivando..."
+        },
+        "confirm": "Arquivar"
+      },
+      "delete": {
+        "title": "Excluir notificação",
+        "description": "Isso removerá permanentemente \"{{content}}\".",
+        "helper": "Você não poderá restaurá-la depois.",
+        "fallback": "Excluir esta notificação?",
+        "status": {
+          "deleting": "Excluindo..."
+        },
+        "confirm": "Excluir"
+      }
+    },
+    "errors": {
+      "fetch": "Falha ao carregar notificações",
+      "archive": "Falha ao arquivar notificação",
+      "delete": "Falha ao excluir notificação",
+      "restore": "Falha ao restaurar notificação"
+    },
+    "authRequired": "Faça login para ver as notificações",
+    "unknownSender": "Alguém",
+    "types": {
+      "like": "{{name}} curtiu seu post",
+      "comment": "{{name}} comentou no seu post",
+      "mention": "{{name}} mencionou você em um post",
+      "follow": "{{name}} começou a seguir você",
+      "reply": "{{name}} respondeu ao seu comentário",
+      "commentLike": "{{name}} curtiu seu comentário",
+      "message": "{{name}} enviou uma mensagem para você",
+      "generic": "Nova notificação"
+    }
+  },
+  "messagesCenter": {
+    "documentTitle": "Mensagens - {{app}}",
+    "authRequired": "Faça login para ver as mensagens",
+    "loading": "Carregando mensagens...",
+    "sidebar": {
+      "title": "Mensagens"
+    },
+    "empty": {
+      "title": "Nenhuma conversa ainda",
+      "subtitle": "Inicie uma conversa visitando o perfil de alguém"
+    },
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "typing": "Digitando…",
+      "deleting": "Excluindo mensagem…",
+      "deleteAction": "Excluir mensagem",
+      "deleteFailure": "Falha ao excluir mensagem"
+    },
+    "unknownUser": "Usuário Desconhecido",
+    "conversation": {
+      "defaultTitle": "Conversa",
+      "selectTitle": "Selecione uma conversa",
+      "selectSubtitle": "Escolha uma conversa da barra lateral para começar a conversar",
+      "youPrefix": "Você: ",
+      "avatarAlt": "Avatar de {{name}}"
+    },
+    "input": {
+      "placeholder": "Digite uma mensagem...",
+      "showEmoji": "Mostrar seletor de emoji",
+      "hideEmoji": "Ocultar seletor de emoji",
+      "send": "Enviar mensagem"
+    },
+    "typingIndicator": "Digitando…",
+    "timestamps": {
+      "edited": "(editado)"
+    }
+  },
+  "settings": {
+    "documentTitle": "Configurações - {{app}}",
+    "title": "Configurações",
+    "languageLabel": "Idioma da interface",
+    "languageHelper": "Escolha o idioma que você prefere para o Axioris.",
+    "tabs": {
+      "account": "Conta",
+      "profile": "Perfil",
+      "appearance": "Aparência",
+      "notifications": "Notificações"
+    },
+    "account": {
+      "sectionTitle": "Configurações da conta",
+      "changePassword": "Alterar senha",
+      "fields": {
+        "username": {
+          "label": "Nome de usuário",
+          "placeholder": "Digite seu nome de usuário"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Digite seu email"
+        },
+        "currentPassword": {
+          "label": "Senha atual",
+          "placeholder": "Digite a senha atual para fazer alterações"
+        },
+        "newPassword": {
+          "label": "Nova senha (opcional)",
+          "placeholder": "Digite uma nova senha"
+        },
+        "confirmPassword": {
+          "label": "Confirmar nova senha",
+          "placeholder": "Confirme a nova senha"
+        }
+      },
+      "actions": {
+        "save": "Salvar alterações da conta"
+      },
+      "feedback": {
+        "success": "Conta atualizada com sucesso!",
+        "error": "Falha ao atualizar conta"
+      },
+      "validation": {
+        "passwordMismatch": "As novas senhas não coincidem",
+        "passwordLength": "A nova senha deve ter pelo menos 6 caracteres",
+        "currentPasswordRequired": "A senha atual é necessária para alterar a senha"
+      },
+      "oauthPasswordInfo": "Como você se cadastrou com o GitHub, pode definir uma nova senha sem inserir sua senha atual.",
+      "oauthFirstPasswordInfo": "Defina sua primeira senha para habilitar login por senha além do GitHub. Depois de defini-la uma vez, você precisará inserir sua senha atual para alterações futuras."
+    },
+    "linkedAccounts": {
+      "title": "Contas Vinculadas",
+      "description": "Conecte contas externas para habilitar opções de login adicionais.",
+      "noAccountsLinked": "Nenhuma conta vinculada",
+      "github": {
+        "title": "GitHub",
+        "notLinked": "Nenhuma conta GitHub vinculada",
+        "linkDescription": "Vincule sua conta GitHub para habilitar o login com GitHub.",
+        "link": "Vincular GitHub",
+        "unlink": "Desvincular",
+        "linking": "Vinculando...",
+        "unlinking": "Desvinculando...",
+        "linkSuccess": "Conta GitHub vinculada com sucesso!",
+        "unlinkSuccess": "Conta GitHub desvinculada com sucesso!",
+        "linkError": "Falha ao vincular conta GitHub",
+        "unlinkError": "Falha ao desvincular conta GitHub",
+        "errors": {
+          "generic": "Operação do GitHub falhou. Tente novamente.",
+          "github_not_configured": "A integração do GitHub não está disponível no momento.",
+          "invalid_oauth_state": "A sessão do GitHub expirou. Tente novamente.",
+          "missing_code": "O GitHub não retornou um código válido. Tente novamente.",
+          "missing_session_user": "Você precisa estar logado para vincular o GitHub.",
+          "already_linked_elsewhere": "Essa conta do GitHub já está vinculada a outro perfil.",
+          "github_oauth_failed": "Operação do GitHub falhou. Tente novamente."
+        }
+      },
+      "google": {
+        "title": "Google",
+        "notLinked": "Nenhuma conta do Google vinculada",
+        "linkDescription": "Vincule sua conta do Google para ativar o login com o Google.",
+        "link": "Vincular Google",
+        "unlink": "Desvincular",
+        "linking": "Vinculando...",
+        "unlinking": "Desvinculando...",
+        "linkSuccess": "Conta do Google vinculada com sucesso!",
+        "unlinkSuccess": "Conta do Google desvinculada com sucesso!",
+        "linkError": "Falha ao vincular conta do Google",
+        "unlinkError": "Falha ao desvincular conta do Google",
+        "errors": {
+          "generic": "Operação do Google falhou. Tente novamente.",
+          "google_not_configured": "A integração com o Google não está disponível no momento.",
+          "invalid_oauth_state": "A sessão do Google expirou. Tente novamente.",
+          "missing_code": "O Google não retornou um código válido. Tente novamente.",
+          "missing_session_user": "Você precisa estar conectado para vincular o Google.",
+          "already_linked_elsewhere": "Essa conta do Google já está vinculada a outro perfil.",
+          "google_oauth_failed": "Operação do Google falhou. Tente novamente."
+        }
+      }
+    },
+    "profile": {
+      "sectionTitle": "Configurações do perfil",
+      "picture": {
+        "title": "Foto do perfil",
+        "alt": "Foto do perfil atual",
+        "upload": "Enviar",
+        "remove": "Remover",
+        "description": "Envie um avatar personalizado ou escolha um de nossos degradês.",
+        "gradientTitle": "Escolha um degradê padrão para o avatar",
+        "removeModal": {
+          "title": "Remover foto do perfil",
+          "description": "Tem certeza de que deseja remover sua foto do perfil? Esta ação não pode ser desfeita.",
+          "cta": "Remover foto"
+        }
+      },
+      "statuses": {
+        "uploading": "Enviando...",
+        "removing": "Removendo..."
+      },
+      "gradients": {
+        "none": "Sem gradiente",
+        "options": {
+          "aurora-sky": "Céu de aurora",
+          "sunset-haze": "Bruma do pôr do sol",
+          "forest-canopy": "Dossel da floresta",
+          "ocean-breeze": "Brisa oceânica",
+          "violet-dream": "Sonho violeta",
+          "sunrise-glow": "Brilho do amanhecer",
+          "neon-noir": "Neon noir",
+          "ember-heat": "Calor de brasa",
+          "berry-splash": "Explosão de frutas vermelhas",
+          "lunar-mist": "Névoa lunar"
+        }
+      },
+      "banner": {
+        "title": "Banner do perfil",
+        "alt": "Banner do perfil atual",
+        "placeholder": "Nenhum banner selecionado",
+        "description": "Envie seu próprio banner ou escolha um dos degradês abaixo.",
+        "upload": "Enviar banner",
+        "remove": "Remover banner",
+        "gradientTitle": "Escolha um degradê padrão para o banner",
+        "removeModal": {
+          "title": "Remover banner do perfil",
+          "description": "Tem certeza de que deseja remover seu banner? Esta ação não pode ser desfeita.",
+          "cta": "Remover banner"
+        }
+      },
+      "fields": {
+        "displayName": {
+          "label": "Nome de exibição",
+          "placeholder": "Digite seu nome de exibição",
+          "count": "{{count}}/{{limit}} caracteres"
+        },
+        "bio": {
+          "label": "Bio",
+          "placeholder": "Escreva algo sobre você...",
+          "count": "{{count}}/{{limit}} caracteres"
+        },
+        "location": {
+          "label": "Localização",
+          "placeholder": "Digite sua localização"
+        },
+        "website": {
+          "label": "Site",
+          "placeholder": "https://seusite.com"
+        },
+        "birthDate": {
+          "label": "Data de nascimento"
+        }
+      },
+      "actions": {
+        "save": "Salvar alterações do perfil"
+      },
+      "errors": {
+        "invalidImageType": "Selecione um arquivo de imagem",
+        "invalidImageSize": "A imagem deve ser menor que 5MB",
+        "invalidBannerSize": "O banner deve ser menor que 8 MB"
+      },
+      "feedback": {
+        "updateSuccess": "Perfil atualizado com sucesso!",
+        "updateError": "Falha ao atualizar perfil",
+        "avatarUploadSuccess": "Foto do perfil atualizada com sucesso!",
+        "avatarUploadError": "Falha ao enviar foto do perfil",
+        "avatarRemoveSuccess": "Foto do perfil removida com sucesso!",
+        "avatarRemoveError": "Falha ao remover foto do perfil",
+        "bannerUploadSuccess": "Banner do perfil atualizado com sucesso!",
+        "bannerUploadError": "Falha ao enviar o banner do perfil",
+        "bannerRemoveSuccess": "Banner do perfil removido com sucesso!",
+        "bannerRemoveError": "Falha ao remover o banner do perfil",
+        "avatarGradientApplied": "Degradê aplicado ao seu avatar.",
+        "avatarGradientCleared": "Degradê do avatar removido.",
+        "avatarGradientError": "Falha ao atualizar o degradê do avatar.",
+        "bannerGradientApplied": "Degradê aplicado ao seu banner.",
+        "bannerGradientCleared": "Degradê do banner removido.",
+        "bannerGradientError": "Falha ao atualizar o degradê do banner."
+      }
+    },
+    "appearance": {
+      "sectionTitle": "Aparência",
+      "fields": {
+        "theme": "Tema"
+      },
+      "actions": {
+        "saveLanguage": "Salvar idioma"
+      },
+      "options": {
+        "light": "Claro",
+        "dark": "Escuro"
+      },
+      "status": {
+        "applying": "Aplicando tema..."
+      },
+      "feedback": {
+        "languageSuccess": "Idioma atualizado com sucesso!",
+        "languageError": "Falha ao atualizar idioma"
+      }
+    },
+    "notifications": {
+      "sectionTitle": "Configurações de notificação",
+      "intro": "Escolha quais notificações você gostaria de receber quando outros usuários interagirem com seu conteúdo.",
+      "toggles": {
+        "likes": {
+          "label": "Curtidas em posts",
+          "description": "Ser notificado quando alguém curtir seus posts"
+        },
+        "comments": {
+          "label": "Comentários",
+          "description": "Ser notificado quando alguém comentar em seus posts"
+        },
+        "follows": {
+          "label": "Novos seguidores",
+          "description": "Ser notificado quando alguém seguir você"
+        },
+        "mentions": {
+          "label": "Menções",
+          "description": "Ser notificado quando alguém mencionar você com @nomedeusuario"
+        },
+        "replies": {
+          "label": "Respostas a comentários",
+          "description": "Ser notificado quando alguém responder aos seus comentários"
+        },
+        "commentLikes": {
+          "label": "Curtidas em comentários",
+          "description": "Ser notificado quando alguém curtir seus comentários"
+        }
+      },
+      "actions": {
+        "save": "Salvar configurações de notificação"
+      },
+      "feedback": {
+        "success": "Configurações de notificação atualizadas com sucesso!",
+        "error": "Falha ao atualizar configurações de notificação"
+      }
+    },
+    "twoFactor": {
+      "title": "Autenticação de Dois Fatores",
+      "description": "Adicione uma camada extra de segurança à sua conta com autenticação de dois fatores usando um aplicativo autenticador.",
+      "enabled": "2FA Ativado",
+      "disabled": "2FA Desativado",
+      "disabledDescription": "Proteja sua conta com um aplicativo autenticador",
+      "recoveryCodesRemaining": "{{count}} códigos de recuperação restantes",
+      "actions": {
+        "enable": "Ativar 2FA",
+        "disable": "Desativar 2FA",
+        "regenerateCodes": "Regenerar Códigos de Recuperação"
+      },
+      "setup": {
+        "title": "Configurar Autenticação de Dois Fatores",
+        "instructions": "Escaneie o código QR abaixo com seu aplicativo autenticador (Google Authenticator, Authy, etc.) ou insira a chave secreta manualmente.",
+        "manualEntry": "Ou insira este código manualmente:",
+        "verifyCode": "Código de Verificação",
+        "verifyInstructions": "Insira o código de 6 dígitos do seu aplicativo autenticador para verificar e ativar 2FA.",
+        "enable": "Ativar 2FA"
+      },
+      "recoveryCodes": {
+        "title": "Códigos de Recuperação",
+        "warning": "Guarde estes códigos de recuperação em um lugar seguro. Cada código só pode ser usado uma vez para fazer login se você perder o acesso ao seu aplicativo autenticador.",
+        "description": "Mantenha estes códigos seguros - você pode usá-los para fazer login se perder seu telefone.",
+        "copy": "Copiar Códigos",
+        "copied": "Códigos de recuperação copiados para a área de transferência!"
+      },
+      "disable": {
+        "title": "Desativar Autenticação de Dois Fatores",
+        "warning": "Desativar 2FA tornará sua conta menos segura. Você precisará apenas de sua senha para fazer login.",
+        "code": "Código 2FA (opcional)",
+        "codeOptional": "Insira seu código 2FA atual se disponível"
+      }
+    },
+    "danger": {
+      "title": "Zona de perigo",
+      "signOut": {
+        "title": "Sair",
+        "description": "Sair da sua conta neste dispositivo.",
+        "cta": "Sair"
+      },
+      "delete": {
+        "title": "Excluir conta",
+        "description": "Excluir permanentemente sua conta e todos os dados associados. Esta ação não pode ser desfeita.",
+        "cta": "Excluir conta"
+      },
+      "modal": {
+        "title": "Excluir conta",
+        "warningTitle": "Aviso:",
+        "warningDescription": "Esta ação não pode ser desfeita. Isso excluirá permanentemente sua conta e todos os dados associados.",
+        "prompt": "Digite sua senha para confirmar a exclusão da conta.",
+        "passwordLabel": "Senha",
+        "passwordPlaceholder": "Digite sua senha",
+        "status": {
+          "deleting": "Excluindo conta..."
+        },
+        "confirm": "Excluir conta"
+      },
+      "feedback": {
+        "deleteError": "Falha ao excluir conta"
+      }
+    }
+  },
+  "admin": {
+    "title": "Painel administrativo",
+    "accessRequired": "Você precisa de acesso de administrador para ver esta página.",
+    "meta": {
+      "documentTitle": "Administração - {{app}}"
+    },
+    "tabs": {
+      "users": "Usuários",
+      "reports": "Denúncias",
+      "posts": "Posts"
+    },
+    "actions": {
+      "search": "Pesquisar",
+      "clear": "Limpar"
+    },
+    "pagination": {
+      "range": "{{start}}-{{end}} de {{total}}",
+      "perPage": "{{count}} por página"
+    },
+    "errors": {
+      "loadUsers": "Falha ao carregar usuários",
+      "loadReports": "Falha ao carregar denúncias",
+      "loadPosts": "Falha ao carregar posts",
+      "deleteUser": "Falha ao excluir usuário",
+      "banUser": "Falha ao banir usuário",
+      "unbanUser": "Falha ao desbanir usuário",
+      "deletePost": "Falha ao excluir post",
+      "updateReport": "Falha ao atualizar denúncia"
+    },
+    "confirmation": {
+      "title": "Confirmar ação",
+      "confirm": "Confirmar"
+    },
+    "users": {
+      "heading": "Gerenciar usuários",
+      "searchPlaceholder": "Pesquisar usuários...",
+      "empty": "Nenhum usuário encontrado.",
+      "table": {
+        "username": "Nome de usuário",
+        "email": "Email",
+        "admin": "Admin",
+        "banned": "Banido",
+        "actions": "Ações"
+      },
+      "actions": {
+        "ban": "Banir",
+        "unban": "Desbanir",
+        "delete": "Excluir"
+      },
+      "confirm": {
+        "ban": "Banir este usuário?",
+        "unban": "Desbanir este usuário?",
+        "delete": "Excluir este usuário?"
+      },
+      "feedback": {
+        "deleteSuccess": "Usuário excluído com sucesso.",
+        "banSuccess": "Usuário banido com sucesso.",
+        "unbanSuccess": "Usuário desbanido com sucesso."
+      }
+    },
+    "reports": {
+      "heading": "Moderar denúncias",
+      "searchPlaceholder": "Pesquisar denúncias...",
+      "empty": "Nenhuma denúncia encontrada.",
+      "filters": {
+        "all": "Todas as denúncias",
+        "post": "Denúncias de posts",
+        "comment": "Denúncias de comentários"
+      },
+      "table": {
+        "id": "ID",
+        "type": "Tipo",
+        "reason": "Motivo",
+        "description": "Descrição",
+        "status": "Status",
+        "actions": "Ações"
+      },
+      "types": {
+        "post": "Post",
+        "comment": "Comentário",
+        "unknown": "Desconhecido"
+      },
+      "actions": {
+        "resolve": "Resolver",
+        "dismiss": "Dispensar"
+      },
+      "confirm": {
+        "resolve": "Marcar esta denúncia como resolvida?",
+        "dismiss": "Dispensar esta denúncia?"
+      },
+      "feedback": {
+        "statusUpdated": "Status da denúncia atualizado para {{status}}."
+      },
+      "status": {
+        "pending": "Pendente",
+        "resolved": "Resolvido",
+        "dismissed": "Dispensado",
+        "open": "Aberto",
+        "inReview": "Em revisão"
+      }
+    },
+    "posts": {
+      "heading": "Gerenciar posts",
+      "searchPlaceholder": "Pesquisar posts...",
+      "empty": "Nenhum post encontrado.",
+      "table": {
+        "id": "ID",
+        "snippet": "Trecho",
+        "user": "Usuário",
+        "actions": "Ações"
+      },
+      "actions": {
+        "delete": "Excluir"
+      },
+      "confirm": {
+        "delete": "Excluir este post?"
+      },
+      "quickDelete": {
+        "label": "Exclusão rápida por ID",
+        "placeholder": "Digite o ID do post",
+        "submit": "Excluir post"
+      },
+      "feedback": {
+        "deleteSuccess": "Post excluído com sucesso."
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "documentTitle": "Entrar - {{app}}",
+      "title": "Entrar",
+      "fields": {
+        "emailOrUsername": "Email ou nome de usuário",
+        "emailOrUsernamePlaceholder": "Digite seu email ou nome de usuário",
+        "password": "Senha",
+        "passwordPlaceholder": "Digite sua senha"
+      },
+      "remember": "Lembrar de mim",
+      "cta": "Entrar",
+      "status": {
+        "loggingIn": "Entrando..."
+      },
+      "links": {
+        "forgotPassword": "Esqueceu a senha?"
+      },
+      "errors": {
+        "generic": "Falha no login"
+      },
+      "registerPrompt": "Não tem uma conta?",
+      "registerLink": "Cadastrar",
+      "githubStatus": {
+        "completing": "Finalizando login do GitHub…",
+        "linked": "Conta GitHub vinculada com sucesso."
+      },
+      "githubErrors": {
+        "generic": "Falha no login do GitHub. Tente novamente.",
+        "github_not_configured": "O login do GitHub não está disponível no momento.",
+        "invalid_oauth_state": "A sessão de login do GitHub expirou. Tente novamente.",
+        "missing_code": "O GitHub não retornou um código de login. Tente novamente.",
+        "missing_session_user": "Você precisa estar logado para vincular o GitHub.",
+        "already_linked_elsewhere": "Essa conta do GitHub já está vinculada a outro perfil.",
+        "github_oauth_failed": "Falha no login do GitHub. Tente novamente."
+      },
+      "orWith": "Ou faça login com"
+    },
+    "register": {
+      "documentTitle": "Cadastrar - {{app}}",
+      "title": "Criar sua conta",
+      "fields": {
+        "username": "Nome de usuário",
+        "usernamePlaceholder": "Nome de usuário (apenas letras, números, pontos)",
+        "email": "Endereço de email",
+        "emailPlaceholder": "Digite seu email",
+        "password": "Senha",
+        "passwordPlaceholder": "Digite sua senha",
+        "confirmPassword": "Confirmar senha",
+        "confirmPasswordPlaceholder": "Digite novamente sua senha"
+      },
+      "cta": "Criar conta",
+      "status": {
+        "registering": "Cadastrando..."
+      },
+      "validation": {
+        "passwordMismatch": "As senhas não coincidem.",
+        "usernameFormat": "O nome de usuário só pode conter letras, números e pontos."
+      },
+      "errors": {
+        "generic": "Falha no cadastro"
+      },
+      "loginPrompt": "Já tem uma conta?",
+      "loginLink": "Entrar",
+      "githubStatus": {
+        "completing": "Criando sua conta com GitHub…",
+        "linked": "Conta GitHub vinculada com sucesso."
+      },
+      "githubErrors": {
+        "generic": "Falha no cadastro do GitHub. Tente novamente.",
+        "github_not_configured": "O cadastro do GitHub não está disponível no momento.",
+        "invalid_oauth_state": "A sessão de cadastro do GitHub expirou. Tente novamente.",
+        "missing_code": "O GitHub não retornou um código de cadastro. Tente novamente.",
+        "missing_session_user": "Você precisa estar logado para vincular o GitHub.",
+        "already_linked_elsewhere": "Essa conta do GitHub já está vinculada a outro perfil.",
+        "github_oauth_failed": "Falha no cadastro do GitHub. Tente novamente."
+      },
+      "orWith": "Ou cadastre-se com"
+    }
+  },
+  "backend": {
+    "health": "Servidor está funcionando"
+  },
+  "hashtags": {
+    "trending": {
+      "heading": "Hashtags em alta",
+      "loading": "Carregando tendências...",
+      "retry": "Tentar novamente",
+      "error": "Não foi possível carregar as hashtags em alta.",
+      "empty": "Nenhuma hashtag está em alta ainda.",
+      "localTitle": "Em alta em {{region}}",
+      "globalTitle": "Tendências mundiais",
+      "fallback": "Ainda não há dados locais—mostrando destaques globais.",
+      "updated": "Atualizado {{time}}",
+      "usageCount_one": "{{count}} post",
+      "usageCount_other": "{{count}} posts",
+      "lastUsed": "Último uso {{time}}"
+    },
+    "page": {
+      "documentTitle": "{{tag}} - {{app}}",
+      "subtitle": "Últimos posts usando esta hashtag.",
+      "subtitleWithCount": "{{count}} posts recentemente",
+      "loading": "Carregando posts...",
+      "retry": "Tentar novamente",
+      "error": "Não foi possível carregar os posts para esta hashtag.",
+      "empty": {
+        "title": "Nenhum post ainda",
+        "description": "Seja o primeiro a compartilhar com esta hashtag."
+      },
+      "loadMore": "Carregar mais",
+      "loadingMore": "Carregando...",
+      "endOfResults": "Isso é tudo por enquanto."
+    }
+  }
+}

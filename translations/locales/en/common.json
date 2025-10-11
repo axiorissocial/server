@@ -1,0 +1,1172 @@
+{
+  "search": {
+    "documentTitle": "Search - {{app}}",
+    "heading": "Search",
+    "subheading": "Find posts and users",
+    "placeholder": "Search for posts or users...",
+    "tabs": {
+      "posts": "Posts",
+      "users": "Users"
+    },
+    "status": {
+      "searchingUsers": "Searching users..."
+    },
+    "emptyUsers": {
+      "title": "No users found",
+      "subtitle": "Try searching with different keywords"
+    },
+    "actions": {
+      "loadMoreUsers": "Load More Users",
+      "search": "Search"
+    },
+    "emptyState": {
+      "title": "Start searching",
+      "subtitle": "Enter a keyword to search for posts and users"
+    },
+    "errors": {
+      "searchFailed": "Failed to search users"
+    }
+  },
+  "app": {
+    "name": "Axioris",
+    "logoAlt": "{{app}} logo"
+  },
+  "nav": {
+    "home": "Home",
+    "search": "Search",
+    "notifications": "Notifications",
+    "messages": "Messages",
+    "profile": "Profile",
+    "settings": "Settings",
+    "admin": "Admin",
+    "createPost": "Create Post",
+    "login": "Login",
+    "signUp": "Sign Up"
+  },
+  "mobile": {
+    "pageTitle": "Install the Axioris PWA",
+    "browserTitle": "Install Axioris PWA",
+    "message": "Axioris runs beautifully as a Progressive Web App. Install it to stay connected on the go without downloading anything from the store.",
+    "errorCode": "Error Code: {{code}}",
+    "installCta": "Install the PWA",
+    "continue": "Continue on Website",
+    "modalTitle": "How to install on your phone",
+    "intro": "Add Axioris to your home screen so it behaves like a fully native app. It only takes a few seconds:",
+    "iosTitle": "On iPhone or iPad (Safari)",
+    "iosSteps": [
+      "Tap the <strong>Share</strong> icon in the browser toolbar.",
+      "Select <strong>Add to Home Screen</strong>.",
+      "Confirm by tapping <strong>Add</strong>."
+    ],
+    "androidTitle": "On Android (Chrome)",
+    "androidSteps": [
+      "Tap the <strong>⋮</strong> menu in the top right corner.",
+      "Choose <strong>Install app</strong> or <strong>Add to home screen</strong>.",
+      "Confirm the prompt to finish."
+    ],
+    "closing": "Once installed, open Axioris from your home screen for the full-screen, distraction-free experience.",
+    "close": "Close",
+    "confirm": "Got it"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Submit",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loadMore": "Load more",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back",
+    "close": "Close",
+    "language": "Language",
+    "languages": {
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "de": "German",
+      "pt": "Portuguese",
+      "it": "Italian"
+    },
+    "viewMore": "Show more",
+    "viewLess": "Show less",
+    "statuses": {
+      "saving": "Saving...",
+      "deleting": "Deleting...",
+      "replying": "Replying...",
+      "posting": "Posting...",
+      "updating": "Updating...",
+      "loading": "Loading...",
+      "verifying": "Verifying...",
+      "processing": "Processing...",
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "mediaModal": {
+    "types": {
+      "image": "Image",
+      "video": "Video"
+    },
+    "position": "{{type}} {{index}} of {{total}}",
+    "actions": {
+      "download": "Download",
+      "preparing": "Preparing..."
+    },
+    "errors": {
+      "downloadFailed": "Failed to download media."
+    }
+  },
+  "feed": {
+    "status": {
+      "loading": "Loading posts...",
+      "end": "You've reached the end!"
+    },
+    "errors": {
+      "fetch": "Failed to load posts.",
+      "generic": "Something went wrong while loading posts."
+    },
+    "empty": {
+      "title": "No posts yet",
+      "search": "No posts found for \"{{query}}\".",
+      "user": "This user hasn't posted anything yet.",
+      "default": "Be the first to share something!"
+    },
+    "actions": {
+      "retry": "Try again",
+      "create": "Create Post",
+      "loadMore": "Load more",
+      "loadingMore": "Loading..."
+    }
+  },
+  "post": {
+    "created": "Posted {{time}}",
+    "edited": "Edited {{time}}",
+    "mediaAlt": "Media item {{index}}",
+    "comments": "Comments",
+    "reactions": "Reactions",
+    "share": "Share",
+    "report": "Report",
+    "delete": "Delete",
+    "edit": "Edit",
+    "copyLink": "Copy link",
+    "reactionsPicker": {
+      "add": "React with {{emoji}}",
+      "remove": "Remove your {{emoji}} reaction"
+    },
+    "labels": {
+      "pinned": "Pinned",
+      "title": "Title:"
+    },
+    "media": {
+      "avatarAlt": "{{name}}'s avatar"
+    },
+    "actions": {
+      "editPost": "Edit post",
+      "deletePost": "Delete post",
+      "reportPost": "Report post",
+      "viewInAdmin": "View in admin",
+      "readMore": "Read more"
+    },
+    "modals": {
+      "delete": {
+        "title": "Delete post",
+        "description": "Are you sure you want to delete this post? This action cannot be undone."
+      }
+    }
+  },
+  "home": {
+    "documentTitle": "Home - {{app}}",
+    "heading": "Home",
+    "subtitle": "Catch up with the latest from people you follow."
+  },
+  "hashtags": {
+    "trending": {
+      "heading": "Trending hashtags",
+      "loading": "Loading trends...",
+      "retry": "Try again",
+      "error": "We couldn't load trending hashtags.",
+      "empty": "No hashtags are trending yet.",
+      "localTitle": "Trending in {{region}}",
+      "globalTitle": "Worldwide trends",
+      "fallback": "No local data yet—showing global highlights.",
+      "updated": "Updated {{time}}",
+      "usageCount_one": "{{count}} post",
+      "usageCount_other": "{{count}} posts",
+      "lastUsed": "Last used {{time}}"
+    },
+    "page": {
+      "documentTitle": "{{tag}} - {{app}}",
+      "subtitle": "Latest posts using this hashtag.",
+      "subtitleWithCount": "{{count}} posts recently",
+      "loading": "Loading posts...",
+      "retry": "Try again",
+      "error": "We couldn't load posts for this hashtag.",
+      "empty": {
+        "title": "No posts yet",
+        "description": "Be the first to share with this hashtag."
+      },
+      "loadMore": "Load more",
+      "loadingMore": "Loading...",
+      "endOfResults": "That's everything for now."
+    }
+  },
+  "postPage": {
+    "meta": {
+      "defaultTitle": "Untitled post",
+      "documentTitle": "{{title}} - {{app}}",
+      "defaultDocumentTitle": "Post - {{app}}"
+    },
+    "errors": {
+      "notFound": "This post could not be found.",
+      "loadFailed": "We couldn't load this post."
+    },
+    "navigation": {
+      "backToHome": "Back to home",
+      "backToProfile": "Back to profile",
+      "backToSearch": "Back to search results",
+      "genericBack": "Go back"
+    },
+    "comments": {
+      "title": "{{count}} Comments",
+      "placeholder": "Share your thoughts...",
+      "actions": {
+        "submit": "Comment"
+      },
+      "status": {
+        "posting": "Posting..."
+      },
+      "validation": {
+        "tooLong": "Comments must be {{limit}} characters or fewer."
+      },
+      "empty": "No comments yet. Be the first to leave one!"
+    }
+  },
+  "profilePage": {
+    "documentTitle": "{{name}} - {{app}}",
+    "loading": "Loading profile...",
+    "redirecting": "Redirecting...",
+    "errors": {
+      "notFound": "Profile not found",
+      "loadFailed": "Failed to load profile"
+    },
+    "error": {
+      "title": "We couldn't load this profile",
+      "description": "Please try again later or go back.",
+      "back": "Go back"
+    },
+    "banned": {
+      "title": "Account Banned",
+      "username": "Username",
+      "bannedOn": "Banned on",
+      "reason": "Reason",
+      "message": "This account has been banned and cannot access the platform."
+    },
+    "media": {
+      "bannerAlt": "{{name}}'s profile banner",
+      "avatarAlt": "{{name}}'s avatar"
+    },
+    "level": "Level {{level}}",
+    "actions": {
+      "createPost": "Create Post",
+      "editProfile": "Edit Profile",
+      "follow": "Follow",
+      "unfollow": "Unfollow",
+      "sendMessage": "Send Message"
+    },
+    "statuses": {
+      "messaging": "Sending message..."
+    },
+    "stats": {
+      "posts": "Posts",
+      "followers": "Followers",
+      "following": "Following"
+    },
+    "meta": {
+      "joined": "Joined {{date}}"
+    },
+    "tabs": {
+      "posts": "Posts",
+      "about": "About"
+    },
+    "about": {
+      "title": "About {{name}}",
+      "details": {
+        "username": "Username",
+        "location": "Location",
+        "website": "Website",
+        "memberSince": "Member since",
+        "level": "Level",
+        "lastActive": "Last active"
+      },
+      "values": {
+        "username": "@{{username}}",
+        "noBio": "No bio available yet.",
+        "unknown": "Unknown"
+      }
+    }
+  },
+  "errorPage": {
+    "documentTitle": "Error {{code}} - {{app}}",
+    "defaultMessage": "The page you're looking for couldn't be found or an error occurred.",
+    "logoAlt": "{{app}} logo",
+    "returnHome": "Return to Home"
+  },
+  "comment": {
+    "placeholder": "Write a comment...",
+    "submit": "Comment",
+    "reply": "Reply",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loadReplies": "View replies",
+    "hideReplies": "Hide replies",
+    "edited": "Edited",
+    "avatarAlt": "{{name}}'s avatar",
+    "prompts": {
+      "deleteConfirm": "Are you sure you want to delete this comment?"
+    },
+    "errors": {
+      "delete": "Failed to delete comment. Please try again.",
+      "update": "Failed to update comment. Please try again.",
+      "replyFailed": "Failed to post reply. Please try again."
+    },
+    "validation": {
+      "tooLong": "Comment is too long. Maximum {{limit}} characters allowed.",
+      "replyTooLong": "Reply is too long. Maximum {{limit}} characters allowed."
+    },
+    "editor": {
+      "supports": "Supports **markdown**, :emojis:, and @mentions",
+      "charCount": "{{count}}/{{limit}} characters",
+      "replyPlaceholder": "Reply to {{name}}..."
+    },
+    "statuses": {
+      "replying": "Replying..."
+    },
+    "time": {
+      "justNow": "Just now",
+      "minutes": "{{count}}m ago",
+      "hours": "{{count}}h ago",
+      "days": "{{count}}d ago",
+      "edited": "(edited)"
+    }
+  },
+  "time": {
+    "calendar": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "todayWithTime": "Today at {{time}}",
+      "yesterdayWithTime": "Yesterday at {{time}}"
+    },
+    "relative": {
+      "justNow": "Just now",
+      "seconds": "{{count}} seconds ago",
+      "minute": "1 minute ago",
+      "minutes": "{{count}} minutes ago",
+      "hour": "1 hour ago",
+      "hours": "{{count}} hours ago",
+      "day": "1 day ago",
+      "days": "{{count}} days ago",
+      "week": "1 week ago",
+      "weeks": "{{count}} weeks ago",
+      "month": "1 month ago",
+      "months": "{{count}} months ago",
+      "year": "1 year ago",
+      "years": "{{count}} years ago"
+    },
+    "formats": {
+      "dateTime": "{{date}} at {{time}}"
+    },
+    "display": {
+      "absoluteWithRelative": "{{absolute}} · {{relative}}"
+    }
+  },
+  "createPost": {
+    "documentTitle": "Create Post - {{app}}",
+    "title": "Create a post",
+    "subtitle": "Share what's on your mind with the community.",
+    "placeholder": "What's happening?",
+    "mediaLimit": "You can attach up to 5 media files.",
+    "submit": "Post",
+    "fields": {
+      "titlePlaceholder": "Title (optional)",
+      "contentPlaceholder": "Enter your post content (supports Markdown) here..."
+    },
+    "tabs": {
+      "write": "Write",
+      "preview": "Preview"
+    },
+    "upload": {
+      "heading": "Uploading files:",
+      "status": {
+        "uploading": "{{progress}}%",
+        "processing": "Processing...",
+        "complete": "Complete",
+        "error": "Error"
+      },
+      "attached": "Attached media ({{count}}/{{limit}})",
+      "videoLabel": "Video"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "submit": "Post",
+      "posting": "Post",
+      "postingStatus": "Posting...",
+      "uploading": "Uploading..."
+    },
+    "charCount": "{{count}}/1000",
+    "mobileTitle": "Create Post",
+    "errors": {
+  "contentLength": "Your post must be between 1 and 1000 characters.",
+      "fileTooLarge": "File {{file}} is too large (max 50MB)",
+      "invalidType": "File {{file}} is not a valid image or video",
+      "maxFiles": "Maximum {{limit}} media files allowed per post",
+      "uploadFailed": "Upload failed",
+      "network": "Network error",
+      "createFailed": "Failed to create post",
+      "createGeneric": "An error occurred while creating the post"
+    }
+  },
+  "editPost": {
+    "modalTitle": "Edit post",
+    "fields": {
+      "titleLabel": "Title (optional)",
+      "titlePlaceholder": "Enter post title...",
+      "contentLabel": "Content",
+      "contentPlaceholder": "What's on your mind?"
+    },
+    "toolbar": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "strikethrough": "Strikethrough",
+      "upload": "Upload image or video",
+      "emoji": "Add emoji"
+    },
+    "tabs": {
+      "write": "Write",
+      "preview": "Preview"
+    },
+    "preview": {
+      "empty": "Nothing to preview..."
+    },
+    "charCount": "{{count}} characters",
+    "media": {
+      "previewAlt": "Upload preview",
+      "remove": "Remove media item"
+    },
+    "errors": {
+      "emptyContent": "Content cannot be empty.",
+      "fileTooLarge": "File {{file}} is too large (max {{limit}}).",
+      "invalidType": "File {{file}} is not a valid image or video.",
+      "maxFiles": "A maximum of {{limit}} media files is allowed per post.",
+      "updateFailed": "Failed to update the post.",
+      "mediaUploadFailed": "Failed to upload media."
+    },
+    "actions": {
+      "update": "Update post",
+      "updating": "Updating post..."
+    }
+  },
+  "report": {
+    "title": "Report content",
+    "description": "Let us know what happened so our team can review it.",
+    "placeholders": {
+      "reason": "Select a reason",
+      "details": "Additional details (optional)"
+    },
+    "fields": {
+      "reasonLabel": "Reason",
+      "notesLabel": "Notes (optional)"
+    },
+    "reasons": {
+      "spam": "Spam",
+      "harassment": "Harassment",
+      "sexual": "Sexual content",
+      "illegal": "Illegal content",
+      "other": "Other"
+    },
+    "modalTitle": {
+      "post": "Report post",
+      "comment": "Report comment"
+    },
+    "submit": "Send report",
+    "status": {
+      "submitting": "Submitting..."
+    },
+    "errors": {
+      "submitFailed": "Failed to submit report"
+    },
+    "success": "Thanks! Your report has been submitted."
+  },
+  "messages": {
+    "new": "New message",
+    "placeholder": "Type a message...",
+    "empty": "Select a conversation or start a new one.",
+    "emoji": "Add emoji"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "You're up to date!"
+  },
+  "notificationsCenter": {
+    "documentTitle": "Notifications - {{app}}",
+    "documentTitleWithCount": "Notifications ({{count}}) - {{app}}",
+    "title": "Notifications",
+    "subtitle": {
+      "active": "Stay up to date with your activity",
+      "archived": "Review items you tucked away"
+    },
+    "views": {
+      "ariaLabel": "Notification view selector",
+      "active": "Active",
+      "archived": "Archived"
+    },
+    "actions": {
+      "markAll": "Mark all as read",
+      "marking": "Marking...",
+      "tooltips": {
+        "archive": "Archive notification",
+        "delete": "Delete notification",
+        "restore": "Restore notification"
+      }
+    },
+    "loading": "Loading notifications...",
+    "empty": {
+      "active": {
+        "title": "No notifications yet",
+        "message": "When people interact with your posts or follow you, you'll see notifications here."
+      },
+      "archived": {
+        "title": "Nothing archived yet",
+        "message": "Archive any notification to tuck it away. Your saved items will appear here."
+      }
+    },
+    "preview": "\"{{snippet}}\"",
+    "badges": {
+      "archived": "Archived"
+    },
+    "timestamps": {
+      "archived": "Archived {{time}}"
+    },
+    "loadMore": {
+      "label": "Load more notifications",
+      "loading": "Loading..."
+    },
+    "modals": {
+      "archive": {
+        "title": "Archive notification",
+        "description": "Archive the notification \"{{content}}\"?",
+        "helper": "Archived items move out of your active list but stay available in the Archived tab.",
+        "fallback": "Archive this notification?",
+        "status": {
+          "archiving": "Archiving..."
+        },
+        "confirm": "Archive"
+      },
+      "delete": {
+        "title": "Delete notification",
+        "description": "This will permanently remove \"{{content}}\".",
+        "helper": "You won't be able to restore it later.",
+        "fallback": "Delete this notification?",
+        "status": {
+          "deleting": "Deleting..."
+        },
+        "confirm": "Delete"
+      }
+    },
+    "errors": {
+      "fetch": "Failed to load notifications",
+      "archive": "Failed to archive notification",
+      "delete": "Failed to delete notification",
+      "restore": "Failed to restore notification"
+    },
+    "authRequired": "Please log in to view notifications",
+    "unknownSender": "Someone",
+    "types": {
+      "like": "{{name}} liked your post",
+      "comment": "{{name}} commented on your post",
+      "mention": "{{name}} mentioned you in a post",
+      "follow": "{{name}} started following you",
+      "reply": "{{name}} replied to your comment",
+      "commentLike": "{{name}} liked your comment",
+      "message": "{{name}} sent you a message",
+      "generic": "New notification"
+    }
+  },
+  "messagesCenter": {
+    "documentTitle": "Messages - {{app}}",
+    "authRequired": "Please log in to view messages",
+    "loading": "Loading messages...",
+    "sidebar": {
+      "title": "Messages"
+    },
+    "empty": {
+      "title": "No conversations yet",
+      "subtitle": "Start a conversation by visiting someone's profile"
+    },
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "typing": "Typing…",
+      "deleting": "Deleting message…",
+      "deleteAction": "Delete message",
+      "deleteFailure": "Failed to delete message"
+    },
+    "unknownUser": "Unknown User",
+    "conversation": {
+      "defaultTitle": "Conversation",
+      "selectTitle": "Select a conversation",
+      "selectSubtitle": "Choose a conversation from the sidebar to start messaging",
+      "youPrefix": "You: ",
+      "avatarAlt": "{{name}}'s avatar"
+    },
+    "input": {
+      "placeholder": "Type a message...",
+      "showEmoji": "Show emoji picker",
+      "hideEmoji": "Hide emoji picker",
+      "send": "Send message"
+    },
+    "typingIndicator": "Typing…",
+    "timestamps": {
+      "edited": "(edited)"
+    }
+  },
+  "settings": {
+    "documentTitle": "Settings - {{app}}",
+    "title": "Settings",
+    "languageLabel": "Interface language",
+    "languageHelper": "Choose the language you prefer for Axioris.",
+    "tabs": {
+      "account": "Account",
+      "profile": "Profile",
+      "appearance": "Appearance",
+      "notifications": "Notifications"
+    },
+    "account": {
+      "sectionTitle": "Account settings",
+      "changePassword": "Change password",
+      "fields": {
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter your username"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email"
+        },
+        "currentPassword": {
+          "label": "Current password",
+          "placeholder": "Enter current password to make changes"
+        },
+        "newPassword": {
+          "label": "New password (optional)",
+          "placeholder": "Enter new password"
+        },
+        "confirmPassword": {
+          "label": "Confirm new password",
+          "placeholder": "Confirm new password"
+        }
+      },
+      "actions": {
+        "save": "Save account changes"
+      },
+      "feedback": {
+        "success": "Account updated successfully!",
+        "error": "Failed to update account"
+      },
+      "validation": {
+        "passwordMismatch": "New passwords do not match",
+        "passwordLength": "New password must be at least 6 characters",
+        "currentPasswordRequired": "Current password is required to change password"
+      },
+      "oauthPasswordInfo": "Since you signed up with GitHub, you can set a new password without entering your current password.",
+      "oauthFirstPasswordInfo": "Set your first password to enable password-based login in addition to GitHub. After setting it once, you'll need to enter your current password for future changes."
+    },
+    "linkedAccounts": {
+      "title": "Linked Accounts",
+      "description": "Connect external accounts to enable additional sign-in options.",
+      "noAccountsLinked": "No accounts linked",
+      "github": {
+        "title": "GitHub",
+        "notLinked": "No GitHub account linked",
+        "linkDescription": "Link your GitHub account to enable GitHub sign-in.",
+        "link": "Link GitHub",
+        "unlink": "Unlink",
+        "linking": "Linking...",
+        "unlinking": "Unlinking...",
+        "linkSuccess": "GitHub account linked successfully!",
+        "unlinkSuccess": "GitHub account unlinked successfully!",
+        "linkError": "Failed to link GitHub account",
+        "unlinkError": "Failed to unlink GitHub account",
+        "errors": {
+          "generic": "GitHub operation failed. Please try again.",
+          "github_not_configured": "GitHub integration is unavailable right now.",
+          "invalid_oauth_state": "The GitHub session expired. Please try again.",
+          "missing_code": "GitHub did not return a valid code. Please try again.",
+          "missing_session_user": "You need to be logged in to link GitHub.",
+          "already_linked_elsewhere": "That GitHub account is already linked to another profile.",
+          "github_oauth_failed": "GitHub operation failed. Please try again."
+        }
+      }
+      ,
+      "google": {
+        "title": "Google",
+        "notLinked": "No Google account linked",
+        "linkDescription": "Link your Google account to enable Google sign-in.",
+        "link": "Link Google",
+        "unlink": "Unlink",
+        "linking": "Linking...",
+        "unlinking": "Unlinking...",
+        "linkSuccess": "Google account linked successfully!",
+        "unlinkSuccess": "Google account unlinked successfully!",
+        "linkError": "Failed to link Google account",
+        "unlinkError": "Failed to unlink Google account",
+        "errors": {
+          "generic": "Google operation failed. Please try again.",
+          "google_not_configured": "Google integration is unavailable right now.",
+          "invalid_oauth_state": "The Google session expired. Please try again.",
+          "missing_code": "Google did not return a valid code. Please try again.",
+          "missing_session_user": "You need to be logged in to link Google.",
+          "already_linked_elsewhere": "That Google account is already linked to another profile.",
+          "google_oauth_failed": "Google operation failed. Please try again."
+        }
+      }
+    },
+    "profile": {
+      "sectionTitle": "Profile settings",
+      "picture": {
+        "title": "Profile picture",
+        "alt": "Current profile picture",
+        "upload": "Upload",
+        "remove": "Remove",
+        "description": "Upload a custom avatar or choose one of our gradients.",
+        "gradientTitle": "Choose a default avatar gradient",
+        "removeModal": {
+          "title": "Remove profile picture",
+          "description": "Are you sure you want to remove your profile picture? This action cannot be undone.",
+          "cta": "Remove picture"
+        }
+      },
+      "statuses": {
+        "uploading": "Uploading...",
+        "removing": "Removing..."
+      },
+      "gradients": {
+        "none": "No gradient",
+        "options": {
+          "aurora-sky": "Aurora Sky",
+          "sunset-haze": "Sunset Haze",
+          "forest-canopy": "Forest Canopy",
+          "ocean-breeze": "Ocean Breeze",
+          "violet-dream": "Violet Dream",
+          "sunrise-glow": "Sunrise Glow",
+          "neon-noir": "Neon Noir",
+          "ember-heat": "Ember Heat",
+          "berry-splash": "Berry Splash",
+          "lunar-mist": "Lunar Mist"
+        }
+      },
+      "banner": {
+        "title": "Profile banner",
+        "alt": "Current profile banner",
+        "placeholder": "No banner selected",
+        "description": "Upload your own banner or select one of the gradients below.",
+        "upload": "Upload banner",
+        "remove": "Remove banner",
+        "gradientTitle": "Choose a default banner gradient",
+        "removeModal": {
+          "title": "Remove profile banner",
+          "description": "Are you sure you want to remove your banner image?",
+          "cta": "Remove banner"
+        }
+      },
+      "fields": {
+        "displayName": {
+          "label": "Display name",
+          "placeholder": "Enter your display name",
+          "count": "{{count}}/{{limit}} characters"
+        },
+        "bio": {
+          "label": "Bio",
+          "placeholder": "Write something about yourself...",
+          "count": "{{count}}/{{limit}} characters"
+        },
+        "location": {
+          "label": "Location",
+          "placeholder": "Enter your location"
+        },
+        "website": {
+          "label": "Website",
+          "placeholder": "https://yourwebsite.com"
+        },
+        "birthDate": {
+          "label": "Birth date"
+        }
+      },
+      "actions": {
+        "save": "Save profile changes"
+      },
+      "errors": {
+        "invalidImageType": "Please select an image file",
+        "invalidImageSize": "Image must be smaller than 5MB",
+        "invalidBannerSize": "Banner must be smaller than 8MB"
+      },
+      "feedback": {
+        "updateSuccess": "Profile updated successfully!",
+        "updateError": "Failed to update profile",
+        "avatarUploadSuccess": "Profile picture updated successfully!",
+        "avatarUploadError": "Failed to upload profile picture",
+        "avatarRemoveSuccess": "Profile picture removed successfully!",
+        "avatarRemoveError": "Failed to remove profile picture",
+        "bannerUploadSuccess": "Profile banner updated successfully!",
+        "bannerUploadError": "Failed to upload profile banner",
+        "bannerRemoveSuccess": "Profile banner removed successfully!",
+        "bannerRemoveError": "Failed to remove profile banner",
+        "avatarGradientApplied": "Gradient applied to your avatar.",
+        "avatarGradientCleared": "Avatar gradient removed.",
+        "avatarGradientError": "Failed to update avatar gradient.",
+        "bannerGradientApplied": "Gradient applied to your banner.",
+        "bannerGradientCleared": "Banner gradient removed.",
+        "bannerGradientError": "Failed to update banner gradient."
+      }
+    },
+    "appearance": {
+      "sectionTitle": "Appearance",
+      "fields": {
+        "theme": "Theme"
+      },
+      "actions": {
+        "saveLanguage": "Save language"
+      },
+      "options": {
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "status": {
+        "applying": "Applying theme..."
+      },
+      "feedback": {
+        "languageSuccess": "Language updated successfully!",
+        "languageError": "Failed to update language"
+      }
+    },
+    "notifications": {
+      "sectionTitle": "Notification settings",
+      "intro": "Choose which notifications you'd like to receive when other users interact with your content.",
+      "toggles": {
+        "likes": {
+          "label": "Post likes",
+          "description": "Get notified when someone likes your posts"
+        },
+        "comments": {
+          "label": "Comments",
+          "description": "Get notified when someone comments on your posts"
+        },
+        "follows": {
+          "label": "New followers",
+          "description": "Get notified when someone follows you"
+        },
+        "mentions": {
+          "label": "Mentions",
+          "description": "Get notified when someone mentions you with @username"
+        },
+        "replies": {
+          "label": "Comment replies",
+          "description": "Get notified when someone replies to your comments"
+        },
+        "commentLikes": {
+          "label": "Comment likes",
+          "description": "Get notified when someone likes your comments"
+        }
+      },
+      "actions": {
+        "save": "Save notification settings"
+      },
+      "feedback": {
+        "success": "Notification settings updated successfully!",
+        "error": "Failed to update notification settings"
+      }
+    },
+    "twoFactor": {
+      "title": "Two-Factor Authentication",
+      "description": "Add an extra layer of security to your account with two-factor authentication using an authenticator app.",
+      "enabled": "2FA Enabled",
+      "disabled": "2FA Disabled",
+      "disabledDescription": "Secure your account with an authenticator app",
+      "recoveryCodesRemaining": "{{count}} recovery codes remaining",
+      "actions": {
+        "enable": "Enable 2FA",
+        "disable": "Disable 2FA",
+        "regenerateCodes": "Regenerate Recovery Codes"
+      },
+      "setup": {
+        "title": "Set Up Two-Factor Authentication",
+        "instructions": "Scan the QR code below with your authenticator app (Google Authenticator, Authy, etc.) or manually enter the secret key.",
+        "manualEntry": "Or enter this code manually:",
+        "verifyCode": "Verification Code",
+        "verifyInstructions": "Enter the 6-digit code from your authenticator app to verify and enable 2FA.",
+        "enable": "Enable 2FA"
+      },
+      "recoveryCodes": {
+        "title": "Recovery Codes",
+        "warning": "Save these recovery codes in a safe place. Each code can only be used once to sign in if you lose access to your authenticator app.",
+        "description": "Keep these codes safe - you can use them to sign in if you lose your phone.",
+        "copy": "Copy Codes",
+        "copied": "Recovery codes copied to clipboard!"
+      },
+      "disable": {
+        "title": "Disable Two-Factor Authentication",
+        "warning": "Disabling 2FA will make your account less secure. You'll only need your password to sign in.",
+        "code": "2FA Code (optional)",
+        "codeOptional": "Enter your current 2FA code if available"
+      }
+    },
+    "danger": {
+      "title": "Danger zone",
+      "signOut": {
+        "title": "Sign out",
+        "description": "Sign out of your account on this device.",
+        "cta": "Sign out"
+      },
+      "delete": {
+        "title": "Delete account",
+        "description": "Permanently delete your account and all associated data. This action cannot be undone.",
+        "cta": "Delete account"
+      },
+      "modal": {
+        "title": "Delete account",
+        "warningTitle": "Warning:",
+        "warningDescription": "This action cannot be undone. This will permanently delete your account and all associated data.",
+        "prompt": "Please enter your password to confirm account deletion.",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "status": {
+          "deleting": "Deleting account..."
+        },
+        "confirm": "Delete account"
+      },
+      "feedback": {
+        "deleteError": "Failed to delete account"
+      }
+    }
+  },
+  "admin": {
+    "title": "Admin panel",
+    "accessRequired": "You need admin access to view this page.",
+    "meta": {
+      "documentTitle": "Admin - {{app}}"
+    },
+    "tabs": {
+      "users": "Users",
+      "reports": "Reports",
+      "posts": "Posts"
+    },
+    "actions": {
+      "search": "Search",
+      "clear": "Clear"
+    },
+    "pagination": {
+      "range": "{{start}}-{{end}} of {{total}}",
+      "perPage": "{{count}} per page"
+    },
+    "errors": {
+      "loadUsers": "Failed to load users",
+      "loadReports": "Failed to load reports",
+      "loadPosts": "Failed to load posts",
+      "deleteUser": "Failed to delete user",
+      "banUser": "Failed to ban user",
+      "unbanUser": "Failed to unban user",
+      "deletePost": "Failed to delete post",
+      "updateReport": "Failed to update report"
+    },
+    "confirmation": {
+      "title": "Confirm action",
+      "confirm": "Confirm"
+    },
+    "users": {
+      "heading": "Manage users",
+      "searchPlaceholder": "Search users...",
+      "empty": "No users found.",
+      "table": {
+        "username": "Username",
+        "email": "Email",
+        "admin": "Admin",
+        "banned": "Banned",
+        "actions": "Actions"
+      },
+      "actions": {
+        "ban": "Ban",
+        "unban": "Unban",
+        "delete": "Delete"
+      },
+      "confirm": {
+        "ban": "Ban this user?",
+        "unban": "Unban this user?",
+        "delete": "Delete this user?"
+      },
+      "feedback": {
+        "deleteSuccess": "User deleted successfully.",
+        "banSuccess": "User banned successfully.",
+        "unbanSuccess": "User unbanned successfully."
+      }
+    },
+    "reports": {
+      "heading": "Moderate reports",
+      "searchPlaceholder": "Search reports...",
+      "empty": "No reports found.",
+      "filters": {
+        "all": "All reports",
+        "post": "Post reports",
+        "comment": "Comment reports"
+      },
+      "table": {
+        "id": "ID",
+        "type": "Type",
+        "reason": "Reason",
+        "description": "Description",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "types": {
+        "post": "Post",
+        "comment": "Comment",
+        "unknown": "Unknown"
+      },
+      "actions": {
+        "resolve": "Resolve",
+        "dismiss": "Dismiss"
+      },
+      "confirm": {
+        "resolve": "Mark this report as resolved?",
+        "dismiss": "Dismiss this report?"
+      },
+      "feedback": {
+        "statusUpdated": "Report status updated to {{status}}."
+      },
+      "status": {
+        "pending": "Pending",
+        "resolved": "Resolved",
+        "dismissed": "Dismissed",
+        "open": "Open",
+        "inReview": "In review"
+      }
+    },
+    "posts": {
+      "heading": "Manage posts",
+      "searchPlaceholder": "Search posts...",
+      "empty": "No posts found.",
+      "table": {
+        "id": "ID",
+        "snippet": "Snippet",
+        "user": "User",
+        "actions": "Actions"
+      },
+      "actions": {
+        "delete": "Delete"
+      },
+      "confirm": {
+        "delete": "Delete this post?"
+      },
+      "quickDelete": {
+        "label": "Quick delete by ID",
+        "placeholder": "Enter post ID",
+        "submit": "Delete post"
+      },
+      "feedback": {
+        "deleteSuccess": "Post deleted successfully."
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "documentTitle": "Log in - {{app}}",
+      "title": "Log in",
+      "fields": {
+        "emailOrUsername": "Email or username",
+        "emailOrUsernamePlaceholder": "Enter your email or username",
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password"
+      },
+      "remember": "Remember me",
+      "cta": "Log in",
+      "status": {
+        "loggingIn": "Logging in..."
+      },
+      "githubStatus": {
+        "completing": "Finishing GitHub sign-in…",
+        "linked": "GitHub account linked successfully."
+      },
+      "orWith": "Or login with",
+      "githubErrors": {
+        "generic": "GitHub sign-in failed. Please try again.",
+        "github_not_configured": "GitHub sign-in is unavailable right now.",
+        "invalid_oauth_state": "The GitHub login session expired. Please try again.",
+        "missing_code": "GitHub did not return a login code. Please try again.",
+        "missing_session_user": "You need to be logged in to link GitHub.",
+        "already_linked_elsewhere": "That GitHub account is already linked to another profile.",
+        "github_oauth_failed": "GitHub sign-in failed. Please try again."
+      },
+      "links": {
+        "forgotPassword": "Forgot password?"
+      },
+      "errors": {
+        "generic": "Login failed",
+        "invalid2FA": "Invalid 2FA code"
+      },
+      "twoFactor": {
+        "title": "Two-Factor Authentication",
+        "description": "Enter the 6-digit code from your authenticator app",
+        "code": "Authentication Code",
+        "recoveryCode": "Recovery Code",
+        "verify": "Verify",
+        "useRecoveryCode": "Use a recovery code instead",
+        "useAuthenticator": "Use authenticator app code"
+      },
+      "registerPrompt": "Don't have an account?",
+      "registerLink": "Sign up"
+    },
+    "register": {
+      "documentTitle": "Sign up - {{app}}",
+      "title": "Create your account",
+      "fields": {
+        "username": "Username",
+        "usernamePlaceholder": "Username (letters, numbers, periods only)",
+        "email": "Email address",
+        "emailPlaceholder": "Enter your email",
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "confirmPassword": "Confirm password",
+        "confirmPasswordPlaceholder": "Re-enter your password"
+      },
+      "cta": "Create account",
+      "status": {
+        "registering": "Registering..."
+      },
+      "githubStatus": {
+        "completing": "Creating your account with GitHub…",
+        "linked": "GitHub account linked successfully."
+      },
+      "orWith": "Or register with",
+      "githubErrors": {
+        "generic": "GitHub sign-up failed. Please try again.",
+        "github_not_configured": "GitHub sign-up is unavailable right now.",
+        "invalid_oauth_state": "The GitHub sign-up session expired. Please try again.",
+        "missing_code": "GitHub did not return a sign-up code. Please try again.",
+        "missing_session_user": "You need to be logged in to link GitHub.",
+        "already_linked_elsewhere": "That GitHub account is already linked to another profile.",
+        "github_oauth_failed": "GitHub sign-up failed. Please try again."
+      },
+      "validation": {
+        "passwordMismatch": "Passwords do not match.",
+        "usernameFormat": "Username can only contain letters, numbers, and periods."
+      },
+      "errors": {
+        "generic": "Registration failed"
+      },
+      "loginPrompt": "Already have an account?",
+      "loginLink": "Log in"
+    }
+  },
+  "backend": {
+    "health": "Server is running"
+  }
+}

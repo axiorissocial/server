@@ -1,0 +1,18 @@
+{
+  "name": "translations",
+  "version": "1.0.0",
+  "description": "This file contains translations for the [Axioris](https://github.com/axiorissocial/web) website.",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node scripts/validate-translations.js",
+    "fix": "node scripts/fix-translations.js",
+    "check": "node scripts/validate-translations.js --generate-templates"
+  },
+  "keywords": [],
+  "author": "Axioris",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

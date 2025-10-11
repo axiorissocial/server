@@ -1,0 +1,110 @@
+name: Translation and Code Quality Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  translation-check:
+    name: Check Translation Completeness
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Validate translations
+      run: npm run validate
+      
+    - name: Comment PR with translation issues
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '❌ **Translation Validation Failed**\n\nSome translation keys are missing or inconsistent across language files. Please check the logs above for details.'
+          })
+
+  todo-check:
+    name: Check for TODO Items
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check for TODO comments
+      run: |
+        echo "🔍 Scanning for TODO comments..."
+        
+        # Search for actual TODO comments (not translation content)
+        # Only look in code files and exclude translation files and system TODO markers
+        TODO_COUNT=$(grep -r -i --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" --include="*.yml" --include="*.yaml" \
+          -E "(//|#)\s*(TODO|FIXME|HACK|XXX)" . \
+          --exclude-dir=node_modules \
+          --exclude-dir=.git \
+          --exclude-dir=dist \
+          --exclude-dir=build \
+          --exclude-dir=coverage \
+          --exclude-dir=locales \
+          --exclude="*.log" | wc -l)
+        
+        if [ "$TODO_COUNT" -gt 0 ]; then
+          echo "❌ Found $TODO_COUNT TODO comment(s):"
+          grep -r -i --include="*.js" --include="*.ts" --include="*.jsx" --include="*.tsx" --include="*.yml" --include="*.yaml" \
+            -E "(//|#)\s*(TODO|FIXME|HACK|XXX)" . \
+            --exclude-dir=node_modules \
+            --exclude-dir=.git \
+            --exclude-dir=dist \
+            --exclude-dir=build \
+            --exclude-dir=coverage \
+            --exclude-dir=locales \
+            --exclude="*.log" || true
+          echo ""
+          echo "💡 Please resolve all TODO comments before committing"
+          exit 1
+        else
+          echo "✅ No TODO comments found"
+        fi
+      
+    - name: Comment PR with TODO issues
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '❌ **TODO Check Failed**\n\nTODO comments were found in the codebase. Please resolve all TODOs before merging. Check the logs above for details.'
+          })
+
+  code-quality:
+    name: Code Quality Summary
+    runs-on: ubuntu-latest
+    needs: [translation-check, todo-check]
+    if: always()
+    
+    steps:
+    - name: Check job results
+      run: |
+        if [[ "${{ needs.translation-check.result }}" == "failure" || "${{ needs.todo-check.result }}" == "failure" ]]; then
+          echo "❌ One or more quality checks failed"
+          exit 1
+        else
+          echo "✅ All quality checks passed"
+        fi

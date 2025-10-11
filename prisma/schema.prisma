@@ -1,0 +1,390 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid()) // UUID primary key
+  username    String   @unique
+  email       String   @unique
+  password    String
+  hasSetPassword Boolean @default(true) // False for OAuth users until they set their first password
+  bio         String?  // optional bio
+  level       Int      @default(1) // XP/level system
+  xp          Int      @default(0)
+  isAdmin     Boolean  @default(false) // Admin privileges
+  isBanned    Boolean  @default(false) // Banned users cannot interact with the site
+  bannedAt    DateTime? // When the user was banned
+  banReason   String?  // Reason for the ban
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  lastLogin   DateTime? 
+  isVerified  Boolean  @default(false)
+  isPrivate   Boolean  @default(false)
+  emailVerifiedAt DateTime?
+  twoFactorEnabled Boolean @default(false)
+  twoFactorSecret String?
+  twoFactorRecoveryCodes Json?
+  phoneNumber String?
+  phoneVerifiedAt DateTime?
+
+  posts       Post[]    // relation to posts
+  likes       Like[]    // relation to post likes
+  commentLikes CommentLike[] // relation to comment likes
+  comments    Comment[] // relation to comments
+  postReactions PostReaction[]
+  settings    UserSettings?
+  profile     Profile?
+  oauthAccounts OAuthAccount[]
+  verificationTokens VerificationToken[]
+  
+  // Following system
+  following   Follow[] @relation("UserFollowing")
+  followers   Follow[] @relation("UserFollowers")
+  
+  // DM system
+  conversationParticipants ConversationParticipant[]
+  sentMessages            Message[]
+  messageReads            MessageRead[]
+  
+  // Notifications system
+  sentNotifications       Notification[] @relation("NotificationSender")
+  receivedNotifications   Notification[] @relation("NotificationReceiver")
+  
+  // Reporting system
+  reports       Report[] @relation("UserReports")    // Reports made by this user
+  reviewedReports Report[] @relation("AdminReviews")  // Reports reviewed by this admin
+  levelChanges   LevelChange[]
+}
+
+model Profile {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String   @unique
+  displayName String?
+  avatar      String?  // URL to profile picture
+  banner      String?  // URL to banner image
+  avatarGradient String? // Identifier for default avatar gradient
+  bannerGradient String? // Identifier for default banner gradient
+  location    String?
+  website     String?
+  bio         String?  // Extended bio
+  birthDate   DateTime?
+  joinedAt    DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Follow {
+  id          String   @id @default(uuid())
+  follower    User     @relation("UserFollowing", fields: [followerId], references: [id], onDelete: Cascade)
+  followerId  String
+  following   User     @relation("UserFollowers", fields: [followingId], references: [id], onDelete: Cascade)
+  followingId String
+  createdAt   DateTime @default(now())
+
+  @@unique([followerId, followingId])
+}
+
+model Post {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  title      String?
+  slug       String?  @unique
+  content    String   // can be base64 if needed
+  media      Json?    // optional JSON field for images/videos
+  likesCount Int      @default(0)
+  viewsCount Int      @default(0)
+  isPinned   Boolean  @default(false)
+  isPrivate  Boolean  @default(false)
+  originCountryCode String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  likes         Like[]
+  comments      Comment[]
+  reactions     PostReaction[]
+  notifications Notification[]
+  reports       Report[]  // Reports against this post
+  hashtags      PostHashtag[]
+}
+
+model Hashtag {
+  id        String        @id @default(uuid())
+  tag       String        @unique
+  createdAt DateTime      @default(now())
+  posts     PostHashtag[]
+}
+
+model PostHashtag {
+  postId      String
+  hashtagId   String
+  countryCode String?
+  createdAt   DateTime     @default(now())
+
+  post    Post    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  hashtag Hashtag @relation(fields: [hashtagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, hashtagId])
+  @@index([hashtagId, createdAt])
+  @@index([countryCode, createdAt])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+  content   String
+  likesCount Int     @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  editedAt  DateTime? // Track when content was last edited (null if never edited)
+  
+  // Reply system
+  parent    Comment? @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  parentId  String?
+  replies   Comment[] @relation("CommentReplies")
+  
+  // Likes relationship
+  likes         CommentLike[]
+  notifications Notification[]
+  reports       Report[]  // Reports against this comment
+}
+
+model Like {
+  user   User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  post   Post  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String
+  createdAt DateTime @default(now())
+
+  @@id([userId, postId]) // composite primary key
+}
+
+model CommentLike {
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  comment   Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId String
+  createdAt DateTime @default(now())
+
+  @@id([userId, commentId]) // composite primary key
+}
+
+model PostReaction {
+  id        String   @id @default(uuid())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([postId, userId])
+  @@index([postId, emoji])
+}
+
+model UserSettings {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String   @unique
+  theme       String   @default("dark")
+  language    String   @default("en")
+  notifications Json?  // JSON for notification preferences
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model OAuthAccount {
+  id                 String   @id @default(uuid())
+  provider           String
+  providerAccountId  String
+  username           String?
+  displayName        String?
+  profileUrl         String?
+  avatarUrl          String?
+  accessToken        String?
+  refreshToken       String?
+  tokenExpiresAt     DateTime?
+  scope              String?
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId             String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@unique([provider, providerAccountId])
+  @@index([userId, provider])
+  @@unique([userId, provider])
+}
+
+model VerificationToken {
+  id         String                 @id @default(uuid())
+  user       User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  token      String                 @unique
+  type       VerificationTokenType
+  expiresAt  DateTime
+  consumedAt DateTime?
+  metadata   Json?
+  createdAt  DateTime               @default(now())
+
+  @@index([userId, type])
+}
+
+enum VerificationTokenType {
+  EMAIL_VERIFICATION
+  PASSWORD_RESET
+  TWO_FACTOR_CHALLENGE
+}
+
+model Conversation {
+  id            String   @id @default(uuid())
+  participants  ConversationParticipant[]
+  messages      Message[]
+  lastMessage   Message? @relation("LastMessage", fields: [lastMessageId], references: [id])
+  lastMessageId String?  @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  notifications Notification[]
+}
+
+model ConversationParticipant {
+  id             String       @id @default(uuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  joinedAt       DateTime     @default(now())
+  lastReadAt     DateTime     @default(now())
+  
+  @@unique([conversationId, userId])
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  senderId       String
+  content        String
+  media          Json?        // For future media message support
+  readBy         MessageRead[]
+  isEdited       Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  
+  // Relation for last message in conversation
+  lastMessageIn  Conversation? @relation("LastMessage")
+}
+
+model MessageRead {
+  id        String   @id @default(uuid())
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  messageId String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  readAt    DateTime @default(now())
+  
+  @@unique([messageId, userId])
+}
+
+// Notification system
+model Notification {
+  id          String            @id @default(uuid())
+  type        NotificationType
+  sender      User?             @relation("NotificationSender", fields: [senderId], references: [id], onDelete: Cascade)
+  senderId    String?
+  receiver    User              @relation("NotificationReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  receiverId  String
+  post        Post?             @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId      String?
+  comment     Comment?          @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId   String?
+  conversation Conversation?    @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String?
+  message     String?           // Custom notification message
+  isRead      Boolean           @default(false)
+  isArchived  Boolean           @default(false)
+  archivedAt  DateTime?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+enum NotificationType {
+  LIKE         // Someone liked your post
+  COMMENT      // Someone commented on your post
+  FOLLOW       // Someone followed you
+  MENTION      // Someone mentioned you in a post/comment
+  REPLY        // Someone replied to your comment
+  COMMENT_LIKE // Someone liked your comment
+  MESSAGE      // Someone sent you a message
+}
+
+// Unified reporting system for posts, comments, and replies
+model Report {
+  id          String      @id @default(uuid())
+  reporter    User        @relation("UserReports", fields: [reporterId], references: [id], onDelete: Cascade)
+  reporterId  String
+  
+  // Reported content (one of these will be set)
+  post        Post?       @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId      String?
+  comment     Comment?    @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId   String?
+  
+  reason      ReportReason
+  description String?     // Additional details from reporter
+  status      ReportStatus @default(PENDING)
+  
+  // Admin handling
+  reviewedBy  User?       @relation("AdminReviews", fields: [reviewedById], references: [id])
+  reviewedById String?
+  reviewNotes String?     // Admin notes
+  reviewedAt  DateTime?
+  
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+enum ReportReason {
+  SPAM
+  HARASSMENT
+  INAPPROPRIATE_CONTENT
+  COPYRIGHT_VIOLATION
+  MISINFORMATION
+  HATE_SPEECH
+  VIOLENCE
+  BUG
+  FEATURE_REQUEST
+  OTHER
+}
+
+model LevelChange {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  delta      Int
+  reason     String
+  sourceType String?  // e.g. 'post_like', 'report'
+  sourceId   String?  // e.g. 'postId:likerId' or report id
+  createdAt  DateTime @default(now())
+
+  @@index([userId])
+  @@index([sourceType, sourceId])
+}
+
+enum ReportStatus {
+  PENDING
+  UNDER_REVIEW
+  RESOLVED
+  DISMISSED
+}

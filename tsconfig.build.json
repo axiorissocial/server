@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "declaration": false,
+    "noImplicitAny": false,
+    "strict": false,
+    "outDir": "./dist",
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules", "dist", "__tests__"]
+}
