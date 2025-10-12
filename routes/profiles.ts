@@ -21,10 +21,22 @@ const requireAuth = (req: any, res: Response, next: any) => {
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'avatars');
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
+    try {
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true, mode: 0o775 });
+      }
+      cb(null, uploadDir);
+    } catch (err: any) {
+      console.error('Failed to prepare avatars upload directory (profiles):', err);
+      try {
+        fs.mkdirSync(path.join(process.cwd(), 'public', 'uploads'), { recursive: true, mode: 0o775 });
+        fs.mkdirSync(uploadDir, { recursive: true, mode: 0o775 });
+        cb(null, uploadDir);
+      } catch (err2) {
+        console.error('Fallback directory creation also failed (profiles):', err2);
+        cb(err2 as any, uploadDir);
+      }
     }
-    cb(null, uploadDir);
   },
   filename: (req: any, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);

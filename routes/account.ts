@@ -34,10 +34,23 @@ const profileGradientsLimiter = rateLimit({
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'avatars');
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
+    try {
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true, mode: 0o775 });
+      }
+      cb(null, uploadDir);
+    } catch (err: any) {
+      console.error('Failed to prepare avatars upload directory:', err);
+      // attempt a fallback: try to create parent dirs and set permissive mode
+      try {
+        fs.mkdirSync(path.join(process.cwd(), 'public', 'uploads'), { recursive: true, mode: 0o775 });
+        fs.mkdirSync(uploadDir, { recursive: true, mode: 0o775 });
+        cb(null, uploadDir);
+      } catch (err2) {
+        console.error('Fallback directory creation also failed:', err2);
+        cb(err2 as any, uploadDir);
+      }
     }
-    cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -62,10 +75,22 @@ const upload = multer({
 
 const bannerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    if (!fs.existsSync(BANNERS_DIR)) {
-      fs.mkdirSync(BANNERS_DIR, { recursive: true });
+    try {
+      if (!fs.existsSync(BANNERS_DIR)) {
+        fs.mkdirSync(BANNERS_DIR, { recursive: true, mode: 0o775 });
+      }
+      cb(null, BANNERS_DIR);
+    } catch (err: any) {
+      console.error('Failed to prepare banners upload directory:', err);
+      try {
+        fs.mkdirSync(path.join(process.cwd(), 'public', 'uploads'), { recursive: true, mode: 0o775 });
+        fs.mkdirSync(BANNERS_DIR, { recursive: true, mode: 0o775 });
+        cb(null, BANNERS_DIR);
+      } catch (err2) {
+        console.error('Fallback banners directory creation also failed:', err2);
+        cb(err2 as any, BANNERS_DIR);
+      }
     }
-    cb(null, BANNERS_DIR);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
