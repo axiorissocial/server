@@ -126,35 +126,10 @@ const createFrontendRedirectUrl = (
   params: Record<string, string | undefined>,
   req?: Request
 ) => {
-  const targetPath = allowedReturnPath(returnTo);
-
-  // Determine base frontend origin in this order:
-  // 1. Explicit FRONTEND_URL env
-  // 2. Request Origin header
-  // 3. Request Referer header
-  // 4. Fallback to default FRONTEND_URL constant
-  let base = FRONTEND_URL;
-  if (!process.env.FRONTEND_URL && req) {
-    const originHeader = req.get('origin');
-    if (originHeader) {
-      try {
-        base = new URL(originHeader).origin;
-      } catch (e) {
-        // ignore and try referer
-      }
-    }
-
-    if (!base || base === 'http://localhost:5173') {
-      const referer = req.get('referer') || req.get('referrer');
-      if (referer) {
-        try {
-          base = new URL(referer).origin;
-        } catch (e) {
-          // ignore
-        }
-      }
-    }
-  }
+  // Always use the explicit FRONTEND_URL as base
+  const base = FRONTEND_URL.replace(/\/$/, '');
+  // Always redirect to /account/login on the frontend for OAuth flows
+  const targetPath = '/account/login';
 
   const url = new URL(targetPath, base);
   Object.entries(params).forEach(([key, value]) => {
