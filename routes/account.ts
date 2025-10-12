@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
+import { safeUnlinkSync, safeUnlink } from '../utils/fileHelpers.js';
 import rateLimit from 'express-rate-limit';
 
 const AVATARS_DIR = path.join(process.cwd(), 'public', 'uploads', 'avatars');
@@ -327,7 +328,7 @@ router.put('/users/profile/gradients', profileGradientsLimiter, requireAuth, asy
       if (currentProfile?.avatar) {
         const avatarPath = path.join(process.cwd(), 'public', currentProfile.avatar);
         if (fs.existsSync(avatarPath)) {
-          fs.unlinkSync(avatarPath);
+          safeUnlinkSync(avatarPath);
         }
       }
       updateData.avatar = null;
@@ -337,7 +338,7 @@ router.put('/users/profile/gradients', profileGradientsLimiter, requireAuth, asy
       if (currentProfile?.banner) {
         const bannerPath = path.join(process.cwd(), 'public', currentProfile.banner);
         if (fs.existsSync(bannerPath)) {
-          fs.unlinkSync(bannerPath);
+          safeUnlinkSync(bannerPath);
         }
       }
       updateData.banner = null;
@@ -391,7 +392,7 @@ router.post('/users/profile/avatar', requireAuth, upload.single('avatar'), async
     if (currentProfile?.avatar) {
       const oldAvatarPath = path.join(process.cwd(), 'public', currentProfile.avatar);
       if (fs.existsSync(oldAvatarPath)) {
-        fs.unlinkSync(oldAvatarPath);
+        safeUnlinkSync(oldAvatarPath);
       }
     }
 
@@ -423,7 +424,7 @@ router.post('/users/profile/avatar', requireAuth, upload.single('avatar'), async
       const filePath = req.file.path;
       const resolvedPath = path.resolve(filePath);
       if (resolvedPath.startsWith(AVATARS_DIR) && fs.existsSync(resolvedPath)) {
-        fs.unlinkSync(resolvedPath);
+        safeUnlinkSync(resolvedPath);
       }
     }
     
@@ -447,7 +448,7 @@ router.post('/users/profile/banner', requireAuth, bannerUpload.single('banner'),
     if (currentProfile?.banner) {
       const oldBannerPath = path.join(process.cwd(), 'public', currentProfile.banner);
       if (fs.existsSync(oldBannerPath)) {
-        fs.unlinkSync(oldBannerPath);
+        safeUnlinkSync(oldBannerPath);
       }
     }
 
@@ -479,7 +480,7 @@ router.post('/users/profile/banner', requireAuth, bannerUpload.single('banner'),
       const filePath = req.file.path;
       const resolvedPath = path.resolve(filePath);
       if (resolvedPath.startsWith(BANNERS_DIR) && fs.existsSync(resolvedPath)) {
-        fs.unlinkSync(resolvedPath);
+        safeUnlinkSync(resolvedPath);
       }
     }
 
@@ -501,7 +502,7 @@ router.delete('/users/profile/avatar', requireAuth, async (req: any, res: any) =
 
     const avatarPath = path.join(process.cwd(), 'public', currentProfile.avatar);
     if (fs.existsSync(avatarPath)) {
-      fs.unlinkSync(avatarPath);
+      safeUnlinkSync(avatarPath);
     }
 
     await prisma.profile.update({
@@ -534,7 +535,7 @@ router.delete('/users/profile/banner', requireAuth, async (req: any, res: any) =
 
     const bannerPath = path.join(process.cwd(), 'public', currentProfile.banner);
     if (fs.existsSync(bannerPath)) {
-      fs.unlinkSync(bannerPath);
+      safeUnlinkSync(bannerPath);
     }
 
     await prisma.profile.update({
@@ -580,7 +581,7 @@ router.delete('/account/delete', requireAuth, async (req: any, res: any) => {
       const avatarPath = path.join(process.cwd(), 'public', currentUser.profile.avatar);
       if (fs.existsSync(avatarPath)) {
         try {
-          fs.unlinkSync(avatarPath);
+          safeUnlinkSync(avatarPath);
           console.log('Deleted avatar file:', avatarPath);
         } catch (error) {
           console.warn('Failed to delete avatar file:', error);
@@ -592,7 +593,7 @@ router.delete('/account/delete', requireAuth, async (req: any, res: any) => {
       const bannerPath = path.join(process.cwd(), 'public', currentUser.profile.banner);
       if (fs.existsSync(bannerPath)) {
         try {
-          fs.unlinkSync(bannerPath);
+          safeUnlinkSync(bannerPath);
           console.log('Deleted banner file:', bannerPath);
         } catch (error) {
           console.warn('Failed to delete banner file:', error);

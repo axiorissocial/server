@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
+import { safeUnlinkSync } from '../utils/fileHelpers.js';
 import fsExtra, { ensureDir } from 'fs-extra';
 import { prisma } from '../index.js';
 import { censor, containsProfanityStrict, containsHighSeverity, containsProfanityForPosts } from '../utils/profanity.js';
@@ -135,7 +136,7 @@ const deleteMediaFiles = (mediaItems: any[]): void => {
       try {
         const filePath = path.join(process.cwd(), 'public', mediaItem.url);
         if (fs.existsSync(filePath)) {
-          fs.unlinkSync(filePath);
+          safeUnlinkSync(filePath);
           console.log(`Deleted media file: ${mediaItem.url}`);
         }
       } catch (error) {
@@ -1514,9 +1515,11 @@ router.post('/posts/cleanup-media', requireAuth, async (req: AuthenticatedReques
       if (!usedFiles.has(filename) && filename.startsWith('media-')) {
         const filePath = path.join(mediaDir, filename);
         try {
-          fs.unlinkSync(filePath);
-          deletedCount++;
-          console.log(`Cleaned up orphaned media file: ${filename}`);
+          safeUnlinkSync(filePath);
+          if (!fs.existsSync(filePath)) {
+            deletedCount++;
+            console.log(`Cleaned up orphaned media file: ${filename}`);
+          }
         } catch (error) {
           console.error(`Failed to delete orphaned media file ${filename}:`, error);
         }
