@@ -658,65 +658,151 @@ router.get('/posts', optionalAuth, async (req: AuthenticatedRequest, res: Respon
           { createdAt: 'desc' as const },
         ];
 
-    const posts = await prisma.post.findMany({
-      where,
-      include: {
-        user: {
-          select: {
-            id: true,
-            username: true,
-            profile: {
-              select: {
-                displayName: true,
-                avatar: true,
-                avatarGradient: true,
-                bannerGradient: true,
+  let posts: any[] = [];
+  let totalPostsCount: number | undefined = undefined;
+  let totalPagesCount: number | undefined = undefined;
+
+    // If this is the default feed (homepage) and we're in recommended/trending mode,
+    // build a trending ranking and apply a light personalization boost for authenticated users.
+    if (isDefaultFeed && (sortMode === 'recommended' || sortMode === 'trending')) {
+      const windowDays = sortMode === 'trending' ? 7 : 30;
+      const createdAfter = new Date(Date.now() - windowDays * 24 * 60 * 60 * 1000);
+
+      // ensure the where clause includes createdAt filter for the trending window
+      const trendingWhere = { ...where, createdAt: { gte: createdAfter } };
+
+      // Fetch a larger candidate set and sort roughly by popularity server-side, we'll refine in JS
+      const candidateLimit = Math.max(200, page * limit, 100);
+      const candidates = await prisma.post.findMany({
+        where: trendingWhere,
+        include: {
+          user: {
+            select: {
+              id: true,
+              username: true,
+              profile: {
+                select: {
+                  displayName: true,
+                  avatar: true,
+                  avatarGradient: true,
+                  bannerGradient: true,
+                }
               }
             }
-          }
+          },
+          likes: { select: { userId: true } },
+          hashtags: { include: { hashtag: { select: { tag: true } } } },
+          _count: { select: { likes: true, comments: true } }
         },
-        likes: {
-          select: {
-            userId: true,
+        orderBy: [
+          { likesCount: 'desc' as const },
+          { viewsCount: 'desc' as const },
+          { updatedAt: 'desc' as const }
+        ],
+        take: candidateLimit
+      });
+
+      // Build some personalization signals if user is authenticated
+      const likedPostIds = new Set<string>();
+      const likedAuthorIds = new Set<string>();
+      const viewedAuthorIds = new Set<string>();
+
+      if (req.userId) {
+        try {
+          const userLikes = await prisma.like.findMany({ where: { userId: req.userId }, select: { postId: true } });
+          userLikes.forEach(l => likedPostIds.add(l.postId));
+
+          if (userLikes.length > 0) {
+            const likedPosts = await prisma.post.findMany({ where: { id: { in: userLikes.map(l => l.postId) } }, select: { userId: true } });
+            likedPosts.forEach(lp => likedAuthorIds.add(lp.userId));
           }
-        },
-        hashtags: {
-          include: {
-            hashtag: {
-              select: {
-                tag: true,
-              }
-            }
-          }
-        },
-        _count: {
-          select: {
-            likes: true,
-            comments: true,
-          }
+        } catch (err) {
+          console.warn('Failed to fetch user likes for personalization:', err);
         }
-      },
-      orderBy,
-      skip,
-      take: limit,
-    });
+
+        try {
+          const sessionData = req.session as any;
+          const viewed = sessionData?.viewedPosts ? Object.keys(sessionData.viewedPosts) : [];
+          if (viewed.length > 0) {
+            const viewedPosts = await prisma.post.findMany({ where: { id: { in: viewed } }, select: { userId: true } });
+            viewedPosts.forEach(vp => viewedAuthorIds.add(vp.userId));
+          }
+        } catch (err) {
+          console.warn('Failed to fetch viewed posts for personalization:', err);
+        }
+      }
+
+      // Score candidates combining popularity and personalization
+      const scored = candidates.map(c => {
+        const basePopularity = (c.likesCount || 0) * 2 + (c.viewsCount || 0);
+        let score = basePopularity;
+        // strong boost if user already liked this exact post (encourage re-engagement)
+        if (req.userId && likedPostIds.has(c.id)) score += 1000;
+        // smaller boost if the post author is someone the user likes or has viewed
+        if (req.userId && likedAuthorIds.has(c.userId)) score += 200;
+        if (req.userId && viewedAuthorIds.has(c.userId)) score += 100;
+        // small recency boost
+        const ageHours = (Date.now() - new Date(c.createdAt).getTime()) / (1000 * 60 * 60);
+        score += Math.max(0, 48 - Math.min(48, ageHours)); // fresher posts get up to +48
+        return { post: c, score };
+      });
+
+      scored.sort((a, b) => {
+        // pinned posts first
+        if (a.post.isPinned && !b.post.isPinned) return -1;
+        if (!a.post.isPinned && b.post.isPinned) return 1;
+        return b.score - a.score;
+      });
+
+      // use JS-sorted posts and paginate from it
+      const sortedPosts = scored.map(s => s.post);
+      const totalCandidates = sortedPosts.length;
+      const start = skip;
+      const end = Math.min(start + limit, totalCandidates);
+      posts = sortedPosts.slice(start, end);
+
+      // adjust totals so pagination UI still works reasonably
+      totalPostsCount = totalCandidates;
+      totalPagesCount = Math.ceil(totalCandidates / limit);
+      // hasNextPage can be derived later when sending the response
+    } else {
+      // non-default feed or recent sorting: existing behavior
+      posts = await prisma.post.findMany({
+        where,
+        include: {
+          user: {
+            select: {
+              id: true,
+              username: true,
+              profile: { select: { displayName: true, avatar: true, avatarGradient: true, bannerGradient: true } }
+            }
+          },
+          likes: { select: { userId: true } },
+          hashtags: { include: { hashtag: { select: { tag: true } } } },
+          _count: { select: { likes: true, comments: true } }
+        },
+        orderBy,
+        skip,
+        take: limit,
+      });
+    }
 
     const postIds = posts.map(post => post.id);
     const reactionsByPost = await getReactionSummaryForPosts(postIds, req.userId);
 
-    const postsWithLikeStatus = posts.map(post => {
-      const { likes, _count, hashtags, ...rest } = post;
+    const postsWithLikeStatus = posts.map((post: any) => {
+      const { likes, _count, hashtags, ...rest } = post as any;
       return {
         ...rest,
-        hashtags: hashtags.map(entry => entry.hashtag.tag),
-        isLiked: req.userId ? likes.some(like => like.userId === req.userId) : false,
+        hashtags: (hashtags || []).map((entry: any) => entry.hashtag.tag),
+        isLiked: req.userId ? (likes || []).some((like: any) => like.userId === req.userId) : false,
         commentsCount: _count?.comments ?? 0,
         reactions: reactionsByPost.get(post.id) ?? buildReactionSummary({}, null),
       };
     });
 
-    const totalPosts = await prisma.post.count({ where });
-    const totalPages = Math.ceil(totalPosts / limit);
+    const totalPosts = totalPostsCount ?? await prisma.post.count({ where });
+    const totalPages = totalPagesCount ?? Math.ceil(totalPosts / limit);
 
     res.json({
       posts: postsWithLikeStatus,
