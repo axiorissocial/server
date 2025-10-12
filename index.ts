@@ -112,8 +112,30 @@ app.get('/api/csrf-token', (req: Request, res: Response) => {
   }
 
   const csrfToken = tokenGenerator();
-  res.setHeader('Cache-Control', 'no-store');
-  res.json({ csrfToken });
+  // Save the session before responding so that the session cookie is sent
+  // to the browser. With `saveUninitialized: false` the session cookie won't
+  // be set until the session is saved; saving here ties the generated CSRF
+  // token to the session and prevents "CSRF token mismatch" errors in dev
+  // flows where the frontend requests the token first.
+  const sess = (req as unknown as { session?: any }).session;
+  const send = () => {
+    res.setHeader('Cache-Control', 'no-store');
+    res.json({ csrfToken });
+  };
+
+  if (sess && typeof sess.save === 'function') {
+    try {
+      sess.save((err: any) => {
+        if (err) console.error('Failed to save session before sending CSRF token:', err);
+        send();
+      });
+    } catch (err) {
+      console.error('Error saving session for CSRF token route:', err);
+      send();
+    }
+  } else {
+    send();
+  }
 });
 
 // Serve uploads. Rely on the global CORS middleware above (do not set a wildcard
