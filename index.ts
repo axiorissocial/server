@@ -33,29 +33,57 @@ const PORT = process.env.PORT || 3001;
 
 const FileStoreSession = FileStore(session);
 
+const isSecureCookie = process.env.NODE_ENV === 'production' || process.env.FORCE_SECURE_COOKIES === 'true';
+
 const sessionMiddleware = session({
   store: new FileStoreSession({
     path: path.join(process.cwd(), 'sessions'),
     ttl: 24 * 60 * 60,
-    reapInterval: 60 * 60
+    reapInterval: 60 * 60,
   }),
   secret: process.env.SESSION_SECRET || 'your-secret-key-change-this',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: isSecureCookie,
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000,
-    sameSite: 'lax',
+    // Use 'none' in secure contexts to allow cross-site requests to include cookies
+    sameSite: isSecureCookie ? 'none' : 'lax',
   },
 });
 
 app.set('trust proxy', 1);
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true
-}));
+// Configure CORS dynamically so the Access-Control-Allow-Origin header
+// matches the incoming request origin (needed when sending credentials).
+const rawWhitelist = (process.env.CORS_WHITELIST || process.env.FRONTEND_URL || '')
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+
+// Add common local dev hosts if not already present
+const devHosts = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+for (const h of devHosts) {
+  if (!rawWhitelist.includes(h)) rawWhitelist.push(h);
+}
+
+const corsOptions = {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+    // allow non-browser tools or same-origin requests where origin is undefined
+    if (!origin) return callback(null, true);
+    if (rawWhitelist.includes(origin)) return callback(null, true);
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'x-csrf-token'],
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+// Ensure preflight requests are handled (use regex path to avoid path-to-regexp '*' parsing issues)
+app.options(/.*/, cors(corsOptions));
 
 app.use(i18nextMiddleware.handle(i18next));
 
@@ -88,12 +116,10 @@ app.get('/api/csrf-token', (req: Request, res: Response) => {
   res.json({ csrfToken });
 });
 
-// Serve uploads with CORS headers to allow cross-origin access
-app.use('/uploads', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET');
-  next();
-}, express.static(path.join(process.cwd(), 'public', 'uploads')));
+// Serve uploads. Rely on the global CORS middleware above (do not set a wildcard
+// origin here as that breaks credentialed requests and will conflict with the
+// dynamic CORS policy).
+app.use('/uploads', express.static(path.join(process.cwd(), 'public', 'uploads')));
 
 app.use('/node_modules/@twemoji/svg', express.static(path.join(process.cwd(), 'node_modules', '@twemoji', 'svg')));
 
