@@ -45,14 +45,46 @@ const buildGoogleCallbackUrl = (req: Request): string => {
 const ensureGoogleConfigured = () => Boolean(GOOGLE_CLIENT_ID);
 
 const buildGithubCallbackUrl = (req: Request): string => {
+  // 1) Allow an explicit override
   if (process.env.GITHUB_CALLBACK_URL) {
+    console.log('Using configured GITHUB_CALLBACK_URL');
     return process.env.GITHUB_CALLBACK_URL;
   }
 
+  // 2) Prefer an explicit FRONTEND_URL env var when present
   if (process.env.FRONTEND_URL) {
-    return `${process.env.FRONTEND_URL.replace(/\/$/, '')}/api/auth/github/callback`;
+    const val = `${process.env.FRONTEND_URL.replace(/\/$/, '')}/api/auth/github/callback`;
+    console.log('Using FRONTEND_URL for GitHub callback:', val);
+    return val;
   }
 
+  // 3) If the browser included an Origin or Referer header, prefer that origin
+  // (useful when frontend runs on a different host than the backend)
+  const originHeader = req.get('origin');
+  if (originHeader) {
+    try {
+      const o = new URL(originHeader);
+      const val = `${o.origin}/api/auth/github/callback`;
+      console.log('Using request Origin header for GitHub callback:', val);
+      return val;
+    } catch (e) {
+      // fallthrough
+    }
+  }
+
+  const referer = req.get('referer') || req.get('referrer');
+  if (referer) {
+    try {
+      const r = new URL(referer);
+      const val = `${r.origin}/api/auth/github/callback`;
+      console.log('Using request Referer header for GitHub callback:', val);
+      return val;
+    } catch (e) {
+      // fallthrough
+    }
+  }
+
+  // 4) Last resort: derive from host/proto (may be localhost in some dev setups)
   const proto = (req.get('x-forwarded-proto') || req.protocol || 'http').split(',')[0];
   const host = req.get('x-forwarded-host') || req.get('host') || 'localhost';
   const derived = `${proto}://${host}/api/auth/github/callback`;
