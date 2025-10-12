@@ -72,7 +72,17 @@ const corsOptions = {
   origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // allow non-browser tools or same-origin requests where origin is undefined
     if (!origin) return callback(null, true);
+
+    // In non-production (development) environments, accept the incoming
+    // origin and echo it back so browsers will accept credentialed responses
+    // from LAN addresses (e.g. http://192.168.x.x:5173). In production we
+    // strictly enforce the configured whitelist.
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+
     if (rawWhitelist.includes(origin)) return callback(null, true);
+    console.warn('Blocked CORS origin:', origin);
     return callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
