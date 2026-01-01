@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import speakeasy from 'speakeasy';
 import QRCode from 'qrcode';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { PrismaClient } from '../prisma/generated/index.js';
 import { requireAuth, AuthenticatedRequest } from '../middleware/auth.js';
 import { checkBanned } from '../middleware/checkBanned.js';
